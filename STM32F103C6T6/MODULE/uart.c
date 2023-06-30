@@ -101,11 +101,12 @@ u16 CRCCheckout(u8 *dat, u16 length) {
     return crc;
 }
 
+extern u8 ICID[4];
 
 void SendData(void) {
     u8 i = 0, s = 0;
     u16 crc = 0;
-    u8 datLength = 7;
+    u8 datLength = 11;
     SendBuff[s++] = 0x55;
     SendBuff[s++] = 0xaa;
     SendBuff[s++] = datLength;
@@ -113,7 +114,26 @@ void SendData(void) {
     SendBuff[s++] = Temperature;
     SendBuff[s++] = Humidty >> 8;
     SendBuff[s++] = Humidty;
-    
+    SendBuff[s++] = ICID[i++];
+    SendBuff[s++] = ICID[i++];
+    SendBuff[s++] = ICID[i++];
+    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
+//    SendBuff[s++] = ICID[i++];
     crc = CRCCheckout(SendBuff, datLength);
     
     SendBuff[s++] = crc >> 8;

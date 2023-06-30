@@ -2,6 +2,11 @@
 #define	__RC522_H
 #include "sys.h" 
 
+
+#define macDummy_Data 0x00
+
+
+
 /////////////////////////////////////////////////////////////////////
 //MF522命令字
 /////////////////////////////////////////////////////////////////////
@@ -115,8 +120,6 @@
 #define 	MI_NOTAGERR           0xcc
 #define 	MI_ERR                0xbb
 
- 
- 
 /*********************************** RC522 引脚定义 *********************************************/
 #define               macRC522_GPIO_CS_CLK_FUN                  RCC_APB2PeriphClockCmd
 #define               macRC522_GPIO_CS_CLK                      RCC_APB2Periph_GPIOA
@@ -151,19 +154,20 @@
 
 
 /*********************************** RC522 函数宏定义*********************************************/
-#define          macRC522_CS_Enable()         GPIO_ResetBits ( macRC522_GPIO_CS_PORT, macRC522_GPIO_CS_PIN )
-#define          macRC522_CS_Disable()        GPIO_SetBits ( macRC522_GPIO_CS_PORT, macRC522_GPIO_CS_PIN )
+#define          macRC522_CS_Enable()         GPIO_ResetBits(macRC522_GPIO_CS_PORT, macRC522_GPIO_CS_PIN)
+#define          macRC522_CS_Disable()        GPIO_SetBits(macRC522_GPIO_CS_PORT, macRC522_GPIO_CS_PIN)
 
-#define          macRC522_Reset_Enable()      GPIO_ResetBits( macRC522_GPIO_RST_PORT, macRC522_GPIO_RST_PIN )
-#define          macRC522_Reset_Disable()     GPIO_SetBits ( macRC522_GPIO_RST_PORT, macRC522_GPIO_RST_PIN )
+#define          macRC522_Reset_Enable()      GPIO_ResetBits( macRC522_GPIO_RST_PORT, macRC522_GPIO_RST_PIN)
+#define          macRC522_Reset_Disable()     GPIO_SetBits(macRC522_GPIO_RST_PORT, macRC522_GPIO_RST_PIN)
 
-#define          macRC522_SCK_0()             GPIO_ResetBits( macRC522_GPIO_SCK_PORT, macRC522_GPIO_SCK_PIN )
-#define          macRC522_SCK_1()             GPIO_SetBits ( macRC522_GPIO_SCK_PORT, macRC522_GPIO_SCK_PIN )
+#define          macRC522_SCK_0()             GPIO_ResetBits( macRC522_GPIO_SCK_PORT, macRC522_GPIO_SCK_PIN)
+#define          macRC522_SCK_1()             GPIO_SetBits(macRC522_GPIO_SCK_PORT, macRC522_GPIO_SCK_PIN)
 
-#define          macRC522_MOSI_0()            GPIO_ResetBits( macRC522_GPIO_MOSI_PORT, macRC522_GPIO_MOSI_PIN )
-#define          macRC522_MOSI_1()            GPIO_SetBits ( macRC522_GPIO_MOSI_PORT, macRC522_GPIO_MOSI_PIN )
+#define          macRC522_MOSI_0()            GPIO_ResetBits( macRC522_GPIO_MOSI_PORT, macRC522_GPIO_MOSI_PIN)
+#define          macRC522_MOSI_1()            GPIO_SetBits(macRC522_GPIO_MOSI_PORT, macRC522_GPIO_MOSI_PIN)
 
-#define          macRC522_MISO_GET()          GPIO_ReadInputDataBit ( macRC522_GPIO_MISO_PORT, macRC522_GPIO_MISO_PIN )
+#define          macRC522_MISO_GET()          GPIO_ReadInputDataBit(macRC522_GPIO_MISO_PORT, macRC522_GPIO_MISO_PIN)
+
 
 
 /*********************************** 函数 *********************************************/

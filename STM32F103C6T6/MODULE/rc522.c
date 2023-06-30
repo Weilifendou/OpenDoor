@@ -7,22 +7,22 @@
 //扇区原密码
 /////////////////////////////////////////////////////////////////////
 u8 sectorKeyA[16][16] = {
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},//0~16扇区原密码
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},//0~16扇区原密码
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
 };
 
 
@@ -30,22 +30,22 @@ u8 sectorKeyA[16][16] = {
 //扇区新密码
 /////////////////////////////////////////////////////////////////////
 u8 sectorNewsectorKeyA[16][16] = {
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},//1-16扇区新密码
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
-    {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},//1-16扇区新密码
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xff,0x07,0x80,0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
 }; 
 
 /////////////////////////////////////////////////////////////////////
@@ -53,7 +53,7 @@ u8 sectorNewsectorKeyA[16][16] = {
 /////////////////////////////////////////////////////////////////////
 
 
-u8 ICID[4];
+extern u8 ICID[4];
 int Balance;
 int Amount;
 u8 ConsumeFlag, RechargeFlag;
@@ -158,45 +158,45 @@ void RC522_Init(void)
 
 static void RC522_SPI_Config(void)
 {
-    /* SPI_InitTypeDef  SPI_InitStructure */
-    GPIO_InitTypeDef GPIO_InitStructure;
+  /* SPI_InitTypeDef  SPI_InitStructure */
+  GPIO_InitTypeDef GPIO_InitStructure;
+  
 
+	/*!< Configure SPI_RC522_SPI pins: CS */
+	macRC522_GPIO_CS_CLK_FUN(macRC522_GPIO_CS_CLK, ENABLE);
+  GPIO_InitStructure.GPIO_Pin = macRC522_GPIO_CS_PIN;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = macRC522_GPIO_CS_Mode;
+  GPIO_Init(macRC522_GPIO_CS_PORT, &GPIO_InitStructure);
+	
+  /*!< Configure SPI_RC522_SPI pins: SCK */
+	macRC522_GPIO_SCK_CLK_FUN(macRC522_GPIO_SCK_CLK, ENABLE);
+  GPIO_InitStructure.GPIO_Pin = macRC522_GPIO_SCK_PIN;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = macRC522_GPIO_SCK_Mode;
+  GPIO_Init(macRC522_GPIO_SCK_PORT, &GPIO_InitStructure);
+	
+  /*!< Configure SPI_RC522_SPI pins: MOSI */
+	macRC522_GPIO_MOSI_CLK_FUN(macRC522_GPIO_MOSI_CLK, ENABLE);
+  GPIO_InitStructure.GPIO_Pin = macRC522_GPIO_MOSI_PIN;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = macRC522_GPIO_MOSI_Mode;
+  GPIO_Init(macRC522_GPIO_MOSI_PORT, &GPIO_InitStructure);
 
-    /*!< Configure SPI_RC522_SPI pins: CS */
-    macRC522_GPIO_CS_CLK_FUN(macRC522_GPIO_CS_CLK, ENABLE);
-    GPIO_InitStructure.GPIO_Pin = macRC522_GPIO_CS_PIN;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode = macRC522_GPIO_CS_Mode;
-    GPIO_Init(macRC522_GPIO_CS_PORT, &GPIO_InitStructure);
-
-    /*!< Configure SPI_RC522_SPI pins: SCK */
-    macRC522_GPIO_SCK_CLK_FUN(macRC522_GPIO_SCK_CLK, ENABLE);
-    GPIO_InitStructure.GPIO_Pin = macRC522_GPIO_SCK_PIN;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode = macRC522_GPIO_SCK_Mode;
-    GPIO_Init(macRC522_GPIO_SCK_PORT, &GPIO_InitStructure);
-
-    /*!< Configure SPI_RC522_SPI pins: MOSI */
-    macRC522_GPIO_MOSI_CLK_FUN(macRC522_GPIO_MOSI_CLK, ENABLE);
-    GPIO_InitStructure.GPIO_Pin = macRC522_GPIO_MOSI_PIN;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode = macRC522_GPIO_MOSI_Mode;
-    GPIO_Init(macRC522_GPIO_MOSI_PORT, &GPIO_InitStructure);
-
-    /*!< Configure SPI_RC522_SPI pins: MISO */
-    macRC522_GPIO_MISO_CLK_FUN(macRC522_GPIO_MISO_CLK, ENABLE);
-    GPIO_InitStructure.GPIO_Pin = macRC522_GPIO_MISO_PIN;
-    GPIO_InitStructure.GPIO_Mode = macRC522_GPIO_MISO_Mode;
-    GPIO_Init(macRC522_GPIO_MISO_PORT, &GPIO_InitStructure);	
-
-
-    /*!< Configure SPI_RC522_SPI pins: RST */
-    macRC522_GPIO_RST_CLK_FUN(macRC522_GPIO_RST_CLK, ENABLE);
-    GPIO_InitStructure.GPIO_Pin = macRC522_GPIO_RST_PIN;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode = macRC522_GPIO_RST_Mode;
-    GPIO_Init(macRC522_GPIO_RST_PORT, &GPIO_InitStructure);
-
+  /*!< Configure SPI_RC522_SPI pins: MISO */
+	macRC522_GPIO_MISO_CLK_FUN(macRC522_GPIO_MISO_CLK, ENABLE);
+  GPIO_InitStructure.GPIO_Pin = macRC522_GPIO_MISO_PIN;
+  GPIO_InitStructure.GPIO_Mode = macRC522_GPIO_MISO_Mode;
+  GPIO_Init(macRC522_GPIO_MISO_PORT, &GPIO_InitStructure);	
+	
+	
+  /*!< Configure SPI_RC522_SPI pins: RST */
+	macRC522_GPIO_RST_CLK_FUN(macRC522_GPIO_RST_CLK, ENABLE);
+  GPIO_InitStructure.GPIO_Pin = macRC522_GPIO_RST_PIN;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = macRC522_GPIO_RST_Mode;
+  GPIO_Init(macRC522_GPIO_RST_PORT, &GPIO_InitStructure);
+	
 }
 
 
@@ -211,20 +211,31 @@ static void RC522_SPI_Config(void)
 void SPI_RC522_SendByte(u8 byte)
 {
     u8 counter;
+	
+	
     for(counter=0;counter<8;counter++)
    {    
-        if(byte & 0x80)
-            macRC522_MOSI_1();
-        else 
-            macRC522_MOSI_0();
+			if(byte & 0x80)
+					macRC522_MOSI_1();
+			else 
+					macRC522_MOSI_0();
+
 //			delay_us(3);
-        macRC522_SCK_0();
+			
+		
+			macRC522_SCK_0();
+
 //			delay_us(1);
 //			delay_us(3);
-        macRC522_SCK_1();
+			
+			 
+			macRC522_SCK_1();
+
 //			delay_us(3);
-        byte <<= 1; 
-        
+			
+			 
+			byte <<= 1; 
+			
    } 
 	
 }
@@ -241,18 +252,31 @@ u8 SPI_RC522_ReadByte(void)
 {
 	u8 counter;
 	u8 SPI_Data;
+
+
 	for(counter=0;counter<8;counter++)
 	{
 			SPI_Data <<= 1;
+	 
 			macRC522_SCK_0();
+
 //			delay_us(3);
+		
+		
 			if(macRC522_MISO_GET() == 1)
 					SPI_Data |= 0x01;
+
 //			delay_us(2);
 //			delay_us(3);
+			
+
 			macRC522_SCK_1();
+	
 //			delay_us(3);
+			
+			
 	}
+	
 	return SPI_Data;
 	
 }
@@ -370,7 +394,7 @@ void PcdAntennaOn(void)
     uc = ReadRawRC(TxControlReg);
 	
     if(!(uc & 0x03))
-        SetBitMask(TxControlReg, 0x03);
+			SetBitMask(TxControlReg, 0x03);
 
 		
 }
@@ -385,7 +409,7 @@ void PcdAntennaOn(void)
  */
 void PcdAntennaOff(void)
 {
-    ClearBitMask(TxControlReg, 0x03);
+  ClearBitMask(TxControlReg, 0x03);
 }
 
 
@@ -399,33 +423,33 @@ void PcdAntennaOff(void)
 void PcdReset(void)
 {
 	macRC522_Reset_Disable();
-
-    delay_us(1);
-
-    macRC522_Reset_Enable();
-
-    delay_us(1);
-
-    macRC522_Reset_Disable();
-
-    delay_us(1);
-
-    WriteRawRC(CommandReg, 0x0f);
-
-    while(ReadRawRC(CommandReg) & 0x10);
-
-    delay_us(1);
-
-    WriteRawRC(ModeReg, 0x3D);            //定义发送和接收常用模式 和Mifare卡通讯，CRC初始值0x6363
-
-    WriteRawRC(TReloadRegL, 30);          //16位定时器低位    
-    WriteRawRC(TReloadRegH, 0);			     //16位定时器高位
-
-    WriteRawRC(TModeReg, 0x8D);				   //定义内部定时器的设置
-
-    WriteRawRC(TPrescalerReg, 0x3E);			 //设置定时器分频系数
-
-    WriteRawRC(TxAutoReg, 0x40);				   //调制发送信号为100%ASK	
+	
+	delay_us(1);
+	
+	macRC522_Reset_Enable();
+	
+	delay_us(1);
+	
+	macRC522_Reset_Disable();
+	
+	delay_us(1);
+	
+	WriteRawRC(CommandReg, 0x0f);
+	
+	while(ReadRawRC(CommandReg) & 0x10);
+	
+	delay_us(1);
+	
+  WriteRawRC(ModeReg, 0x3D);            //定义发送和接收常用模式 和Mifare卡通讯，CRC初始值0x6363
+	
+  WriteRawRC(TReloadRegL, 30);          //16位定时器低位    
+	WriteRawRC(TReloadRegH, 0);			     //16位定时器高位
+	
+  WriteRawRC(TModeReg, 0x8D);				   //定义内部定时器的设置
+	
+  WriteRawRC(TPrescalerReg, 0x3E);			 //设置定时器分频系数
+	
+	WriteRawRC(TxAutoReg, 0x40);				   //调制发送信号为100%ASK	
 	
 
 }
@@ -441,28 +465,28 @@ void PcdReset(void)
 void M500PcdConfigISOType(u8 ucType)
 {
 	if(ucType == 'A')                     //ISO14443_A
-    {
-        ClearBitMask(Status2Reg, 0x08);
-
-        WriteRawRC(ModeReg, 0x3D);//3F
-
-        WriteRawRC(RxSelReg, 0x86);//84
-
-        WriteRawRC(RFCfgReg, 0x7F);   //4F
-
-        WriteRawRC(TReloadRegL, 30);//tmoLength);// TReloadVal = 'h6a =tmoLength(dec) 
-
-        WriteRawRC(TReloadRegH, 0);
-
-        WriteRawRC(TModeReg, 0x8D);
-
-        WriteRawRC(TPrescalerReg, 0x3E);
-
-        delay_us(2);
-
-        PcdAntennaOn();//开天线
-        
-    }
+  {
+		ClearBitMask(Status2Reg, 0x08);
+		
+    WriteRawRC(ModeReg, 0x3D);//3F
+		
+		WriteRawRC(RxSelReg, 0x86);//84
+		
+		WriteRawRC(RFCfgReg, 0x7F);   //4F
+		
+		WriteRawRC(TReloadRegL, 30);//tmoLength);// TReloadVal = 'h6a =tmoLength(dec) 
+		
+		WriteRawRC(TReloadRegH, 0);
+		
+		WriteRawRC(TModeReg, 0x8D);
+		
+		WriteRawRC(TPrescalerReg, 0x3E);
+		
+		delay_us(2);
+		
+		PcdAntennaOn();//开天线
+		
+  }
 
 	 
 }
@@ -513,64 +537,67 @@ char PcdComMF522(u8 ucCommand, u8 * pInData, u8 ucInLenByte, u8 * pOutData, u32 
     SetBitMask(FIFOLevelReg, 0x80);			//置位FlushBuffer清除内部FIFO的读和写指针以及ErrReg的BufferOvfl标志位被清除
     
     for(ul = 0; ul < ucInLenByte; ul ++)
-        WriteRawRC(FIFODataReg, pInData[ul]);    		//写数据进FIFOdata
+		  WriteRawRC(FIFODataReg, pInData[ul]);    		//写数据进FIFOdata
 			
     WriteRawRC(CommandReg, ucCommand);					//写命令
    
     
     if(ucCommand == PCD_TRANSCEIVE)
-        SetBitMask(BitFramingReg,0x80);  				//StartSend置位启动数据发送 该位与收发命令使用时才有效
+			SetBitMask(BitFramingReg,0x80);  				//StartSend置位启动数据发送 该位与收发命令使用时才有效
     
     ul = 1000;//根据时钟频率调整，操作M1卡最大等待时间25ms
 		
     do 														//认证 与寻卡等待时间	
     {
-        ucN = ReadRawRC(ComIrqReg);							//查询事件中断
-        ul --;
-    } while((ul != 0) &&(!(ucN & 0x01)) &&(!(ucN & ucWaitFor)));		//退出条件i=0,定时器中断，与写空闲命令
+         ucN = ReadRawRC(ComIrqReg);							//查询事件中断
+         ul --;
+   } while((ul != 0) &&(!(ucN & 0x01)) &&(!(ucN & ucWaitFor)));		//退出条件i=0,定时器中断，与写空闲命令
 		
     ClearBitMask(BitFramingReg, 0x80);					//清理允许StartSend位
 		
     if(ul != 0)
     {
-        if(!(ReadRawRC(ErrorReg) & 0x1B))			//读错误标志寄存器BufferOfI CollErr ParityErr ProtocolErr
-        {
-            cStatus = MI_OK;
-
-            if(ucN & ucIrqEn & 0x01)					//是否发生定时器中断
-                cStatus = MI_NOTAGERR;   
-
-            if(ucCommand == PCD_TRANSCEIVE)
-            {
-                ucN = ReadRawRC(FIFOLevelReg);			//读FIFO中保存的字节数
-
-                ucLastBits = ReadRawRC(ControlReg) & 0x07;	//最后接收到得字节的有效位数
-
-                if(ucLastBits)
-                    * pOutLenBit =(ucN - 1) * 8 + ucLastBits;   	//N个字节数减去1（最后一个字节）+最后一位的位数 读取到的数据总位数
-                else
-                    * pOutLenBit = ucN * 8;   					//最后接收到的字节整个字节有效
-
-                if(ucN == 0)		
-                    ucN = 1;
-
-                if(ucN > MAXRLEN)
-                    ucN = MAXRLEN;   
-
-                for(ul = 0; ul < ucN; ul ++)
-                    pOutData[ul] = ReadRawRC(FIFODataReg);   
-
-            }
-
-        }
-        else
-            cStatus = MI_ERR;   
-    }
-
-    SetBitMask(ControlReg, 0x80);           // stop timer now
-    WriteRawRC(CommandReg, PCD_IDLE); 
-    
-    return cStatus;
+			if(!(ReadRawRC(ErrorReg) & 0x1B))			//读错误标志寄存器BufferOfI CollErr ParityErr ProtocolErr
+			{
+				cStatus = MI_OK;
+				
+				if(ucN & ucIrqEn & 0x01)					//是否发生定时器中断
+				  cStatus = MI_NOTAGERR;   
+					
+				if(ucCommand == PCD_TRANSCEIVE)
+				{
+					ucN = ReadRawRC(FIFOLevelReg);			//读FIFO中保存的字节数
+					
+					ucLastBits = ReadRawRC(ControlReg) & 0x07;	//最后接收到得字节的有效位数
+					
+					if(ucLastBits)
+						* pOutLenBit =(ucN - 1) * 8 + ucLastBits;   	//N个字节数减去1（最后一个字节）+最后一位的位数 读取到的数据总位数
+					else
+						* pOutLenBit = ucN * 8;   					//最后接收到的字节整个字节有效
+					
+					if(ucN == 0)		
+            ucN = 1;    
+					
+					if(ucN > MAXRLEN)
+						ucN = MAXRLEN;   
+					
+					for(ul = 0; ul < ucN; ul ++)
+					  pOutData[ul] = ReadRawRC(FIFODataReg);   
+					
+					}
+					
+     }
+			
+			else
+				cStatus = MI_ERR;   
+			
+   }
+   
+   SetBitMask(ControlReg, 0x80);           // stop timer now
+   WriteRawRC(CommandReg, PCD_IDLE); 
+		 
+		
+   return cStatus;
 		
 		
 }
@@ -594,31 +621,31 @@ char PcdComMF522(u8 ucCommand, u8 * pInData, u8 ucInLenByte, u8 * pOutData, u32 
  */
 char PcdRequest(u8 ucReq_code, u8 * pTagType)
 {
-    char cStatus;  
-    u8 ucComMF522Buf[MAXRLEN]; 
-    u32 ulLen;
+   char cStatus;  
+	 u8 ucComMF522Buf[MAXRLEN]; 
+   u32 ulLen;
+	
 
+   ClearBitMask(Status2Reg, 0x08);	//清理指示MIFARECyptol单元接通以及所有卡的数据通信被加密的情况
+   WriteRawRC(BitFramingReg, 0x07);	//	发送的最后一个字节的 七位
+   SetBitMask(TxControlReg, 0x03);	//TX1,TX2管脚的输出信号传递经发送调制的13.56的能量载波信号
 
-    ClearBitMask(Status2Reg, 0x08);	//清理指示MIFARECyptol单元接通以及所有卡的数据通信被加密的情况
-    WriteRawRC(BitFramingReg, 0x07);	//	发送的最后一个字节的 七位
-    SetBitMask(TxControlReg, 0x03);	//TX1,TX2管脚的输出信号传递经发送调制的13.56的能量载波信号
+   ucComMF522Buf[0] = ucReq_code;		//存入 卡片命令字
 
-    ucComMF522Buf[0] = ucReq_code;		//存入 卡片命令字
-
-    cStatus = PcdComMF522(PCD_TRANSCEIVE,	ucComMF522Buf, 1, ucComMF522Buf, & ulLen);	//寻卡  
-
-    if((cStatus == MI_OK) &&(ulLen == 0x10))	//寻卡成功返回卡类型 
-    {   
+   cStatus = PcdComMF522(PCD_TRANSCEIVE,	ucComMF522Buf, 1, ucComMF522Buf, & ulLen);	//寻卡  
+  
+   if((cStatus == MI_OK) &&(ulLen == 0x10))	//寻卡成功返回卡类型 
+  {   
        * pTagType = ucComMF522Buf[0];
        *(pTagType + 1) = ucComMF522Buf[1];
-    }
-     
-    else
+  }
+	 
+   else
      cStatus = MI_ERR;
 
-
-    return cStatus;
-     
+   
+   return cStatus;
+	 
 	 
 }
 
@@ -636,7 +663,7 @@ char PcdAnticoll(u8 * pSnr)
     char cStatus;
     u8 uc, ucSnr_check = 0;
     u8 ucComMF522Buf[MAXRLEN]; 
-    u32 ulLen;
+	  u32 ulLen;
     
 
     ClearBitMask(Status2Reg, 0x08);		//清MFCryptol On位 只有成功执行MFAuthent命令后，该位才能置位
@@ -701,7 +728,7 @@ void CalulateCRC(u8 * pIndata, u8 ucLen, u8 * pOutData)
     {
         ucN = ReadRawRC(DivIrqReg);
         uc --;
-    } while((uc != 0) && !(ucN & 0x04));
+   } while((uc != 0) && !(ucN & 0x04));
 		
     pOutData[0] = ReadRawRC(CRCResultRegL);
     pOutData[1] = ReadRawRC(CRCResultRegM);
@@ -722,7 +749,7 @@ char PcdSelect(u8 * pSnr)
 {
     char ucN;
     u8 uc;
-    u8 ucComMF522Buf[MAXRLEN]; 
+	  u8 ucComMF522Buf[MAXRLEN]; 
     u32  ulLen;
     
     
@@ -734,7 +761,7 @@ char PcdSelect(u8 * pSnr)
     {
     	ucComMF522Buf[uc + 2] = *(pSnr + uc);
     	ucComMF522Buf[6] ^= *(pSnr + uc);
-    }
+   }
 		
     CalulateCRC(ucComMF522Buf, 7, & ucComMF522Buf[7]);
   
@@ -770,7 +797,7 @@ char PcdSelect(u8 * pSnr)
 char PcdAuthState(u8 ucAuth_mode, u8 ucAddr, u8 * pKey, u8 * pSnr)
 {
     char cStatus;
-    u8 uc, ucComMF522Buf[MAXRLEN];
+	  u8 uc, ucComMF522Buf[MAXRLEN];
     u32 ulLen;
     
 	
@@ -807,7 +834,7 @@ char PcdAuthState(u8 ucAuth_mode, u8 ucAddr, u8 * pKey, u8 * pSnr)
 char PcdWrite(u8 ucAddr, u8 * pData)
 {
     char cStatus;
-    u8 uc, ucComMF522Buf[MAXRLEN];
+	  u8 uc, ucComMF522Buf[MAXRLEN];
     u32 ulLen;
      
     
@@ -834,8 +861,12 @@ char PcdWrite(u8 ucAddr, u8 * pData)
 			if((cStatus != MI_OK) ||(ulLen != 4) ||((ucComMF522Buf[0] & 0x0F) != 0x0A))
         cStatus = MI_ERR;   
 			
-   }
+   } 
+		
+		
     return cStatus;
+		
+		
 }
 
 
@@ -851,7 +882,7 @@ char PcdWrite(u8 ucAddr, u8 * pData)
 char PcdRead(u8 ucAddr, u8 * pData)
 {
     char cStatus;
-    u8 uc, ucComMF522Buf[MAXRLEN]; 
+	  u8 uc, ucComMF522Buf[MAXRLEN]; 
     u32 ulLen;
     
 
@@ -866,7 +897,7 @@ char PcdRead(u8 ucAddr, u8 * pData)
     {
 			for(uc = 0; uc < 16; uc ++)
         *(pData + uc) = ucComMF522Buf[uc];   
-    }
+   }
 		
     else
       cStatus = MI_ERR;   
@@ -888,43 +919,43 @@ char PcdRead(u8 ucAddr, u8 * pData)
  */
 char PcdHalt(void)
 {
-    u8 ucComMF522Buf[MAXRLEN]; 
-    u32  ulLen;
+	u8 ucComMF522Buf[MAXRLEN]; 
+	u32  ulLen;
+  
 
+  ucComMF522Buf[0] = PICC_HALT;
+  ucComMF522Buf[1] = 0;
+	
+  CalulateCRC(ucComMF522Buf, 2, & ucComMF522Buf[2]);
+ 	PcdComMF522(PCD_TRANSCEIVE, ucComMF522Buf, 4, ucComMF522Buf, & ulLen);
 
-    ucComMF522Buf[0] = PICC_HALT;
-    ucComMF522Buf[1] = 0;
-
-    CalulateCRC(ucComMF522Buf, 2, & ucComMF522Buf[2]);
-    PcdComMF522(PCD_TRANSCEIVE, ucComMF522Buf, 4, ucComMF522Buf, & ulLen);
-
-    return MI_OK;
+  return MI_OK;
 	
 }
 
 
 void IC_CMT(u8 * UID, u8 * KEY, u8 RW, u8 * Dat)
 {
-    u8 ucArray_ID[4] ={0};//先后存放IC卡的类型和UID(IC卡序列号)
+  u8 ucArray_ID[4] ={0};//先后存放IC卡的类型和UID(IC卡序列号)
+  
+	
+  PcdRequest(0x52, ucArray_ID);//寻卡
 
+  PcdAnticoll(ucArray_ID);//防冲撞
+  
+  PcdSelect(UID);//选定卡
+  
+  PcdAuthState(0x60, 0x10, KEY, UID);//校验
+	
 
-    PcdRequest(0x52, ucArray_ID);//寻卡
-
-    PcdAnticoll(ucArray_ID);//防冲撞
-
-    PcdSelect(UID);//选定卡
-
-    PcdAuthState(0x60, 0x10, KEY, UID);//校验
-
-
-    if(RW)//读写选择，1是读，0是写
+	if(RW)//读写选择，1是读，0是写
     PcdRead(0x10, Dat);
-
-    else 
+   
+   else 
      PcdWrite(0x10, Dat);
-
-     
-    PcdHalt();
-     
+   
+	 
+   PcdHalt();
+	 
 	 
 }

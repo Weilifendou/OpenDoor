@@ -15,11 +15,6 @@ KEY：PB12 PB13 PB14 PB15
 //	{0x0D,0x0D,0xB3,0xAA},
 //};
 
-//extern u8 ICID[4];
-//extern int Balance;
-//extern int Amount;
-//extern u8 ConsumeFlag, RechargeFlag;
-//extern u8 CardOrder;
 
 
 //void ShowInfo(void){
@@ -174,6 +169,8 @@ KEY：PB12 PB13 PB14 PB15
 u16 Temperature, Humidty;
 u8 white, yellow, steer;
 
+u8 ICID[4];
+
 int main(void)
 {
     char text[20];
@@ -183,6 +180,7 @@ int main(void)
     LED_Init(); //LED初始化
     Key_Init(); //按键初始化
     DHT11_Init(); //温湿度传感器初始化
+    RC522_Init(); //NFC初始化
     OLED_Init(); //屏幕初始化
     OLED_Fill(0x00);
     ClearStr(text);
@@ -193,7 +191,7 @@ int main(void)
     delay_ms(1000);
     OLED_Fill(0x00);
     TIM3_PWM_Init(1999, 719); //PWM波初始化，周期为20ms
-    TIM2_Int_Init(5999, 7199); //定时器2初始化定时1s
+//    TIM2_Int_Init(5999, 7199); //定时器2初始化定时1s
     Iwdg_Init();
     
     OSInit();

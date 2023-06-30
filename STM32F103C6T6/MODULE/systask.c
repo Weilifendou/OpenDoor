@@ -1,10 +1,11 @@
 #include "systask.h"
 #include "delay.h"
 #include "led.h"
+#include "uart.h"
 #include "oled.h"
 #include "dht11.h"
 #include "key.h"
-#include "uart.h"
+#include "rc522.h"
 #include "stmflash.h"
 
 
@@ -48,18 +49,24 @@ void led_task(void *pdata)
 
 extern u16 Temperature, Humidty;
 
+extern u8 ICID[20];
+
 void handle_task(void *pdata)
 {
-    static u8 delayer = 10;
+    u8 delayer = 10;
+	u8 onceFlag = 0;
+	u8 cStatus = MI_ERR;
     while(1)
     {
-        if (delayer >= 10) {
+        if (delayer >= 0) {
             delayer = 0;
             DHT11_ReadData(&Temperature, &Humidty);
             SendData();
         }
         ScanKey(0);
-        delay_ms(200);
+        cStatus = GetICID();
+        ICID[0] = cStatus;
+        delay_ms(1000);
         delayer++;
     }
 }

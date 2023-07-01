@@ -1,6 +1,6 @@
 Dependencies for Project 'Template', Target 'Template': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x649ED72F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x649FDF95)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\MODULE\led.h)(0x649E64A6)
 I (..\SYSTEM\sys\sys.h)(0x647C5B68)
 I (..\USER\stm32f10x.h)(0x6268D00B)
@@ -33,15 +33,15 @@ I (..\FWLIB\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\FWLIB\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\delay\delay.h)(0x647A9CC7)
 I (..\MODULE\uart.h)(0x649E71F7)
-I (..\MODULE\str.h)(0x647CB80F)
-I (..\MODULE\OLED.h)(0x649E5F7C)
+I (..\MODULE\str.h)(0x649F8D83)
+I (..\MODULE\OLED.h)(0x649FDF4A)
 I (..\MODULE\cncode.h)(0x5CC47CAA)
 I (..\MODULE\dht11.h)(0x649ED31A)
 I (..\MODULE\pwm.h)(0x649EDCF5)
 I (..\MODULE\timer.h)(0x6268ECD5)
-I (..\MODULE\stmflash.h)(0x649E58B8)
+I (..\MODULE\stmflash.h)(0x649FE07B)
 I (..\MODULE\rc522.h)(0x649EDAFC)
-I (..\MODULE\key.h)(0x649E681E)
+I (..\MODULE\key.h)(0x649FC175)
 I (..\MODULE\iwdg.h)(0x649E5A41)
 I (..\UCOSII\CONFIG\includes.h)(0x647AA1B7)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
@@ -477,7 +477,7 @@ I (..\FWLIB\inc\stm32f10x_tim.h)(0x6268CFB3)
 I (..\FWLIB\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\FWLIB\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\FWLIB\inc\misc.h)(0x4D783BB4)
-F (..\MODULE\led.c)(0x649E6612)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
+F (..\MODULE\led.c)(0x649FCD40)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
 I (..\MODULE\led.h)(0x649E64A6)
 I (..\SYSTEM\sys\sys.h)(0x647C5B68)
 I (..\USER\stm32f10x.h)(0x6268D00B)
@@ -539,12 +539,12 @@ I (..\FWLIB\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\FWLIB\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\FWLIB\inc\misc.h)(0x4D783BB4)
 I (..\MODULE\uart.h)(0x649E71F7)
-I (..\MODULE\str.h)(0x647CB80F)
+I (..\MODULE\str.h)(0x649F8D83)
 I (..\MODULE\rc522.h)(0x649EDAFC)
 I (..\MODULE\dht11.h)(0x649ED31A)
 I (..\MODULE\pwm.h)(0x649EDCF5)
-F (..\MODULE\str.c)(0x647CB991)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\str.o --omf_browse ..\obj\str.crf --depend ..\obj\str.d)
-I (..\MODULE\str.h)(0x647CB80F)
+F (..\MODULE\str.c)(0x649F97BF)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\str.o --omf_browse ..\obj\str.crf --depend ..\obj\str.d)
+I (..\MODULE\str.h)(0x649F8D83)
 I (..\SYSTEM\sys\sys.h)(0x647C5B68)
 I (..\USER\stm32f10x.h)(0x6268D00B)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -574,8 +574,8 @@ I (..\FWLIB\inc\stm32f10x_tim.h)(0x6268CFB3)
 I (..\FWLIB\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\FWLIB\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\FWLIB\inc\misc.h)(0x4D783BB4)
-F (..\MODULE\oled.c)(0x649E7353)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\oled.o --omf_browse ..\obj\oled.crf --depend ..\obj\oled.d)
-I (..\MODULE\oled.h)(0x649E5F7C)
+F (..\MODULE\oled.c)(0x649FE023)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\oled.o --omf_browse ..\obj\oled.crf --depend ..\obj\oled.d)
+I (..\MODULE\oled.h)(0x649FDF4A)
 I (..\SYSTEM\sys\sys.h)(0x647C5B68)
 I (..\USER\stm32f10x.h)(0x6268D00B)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -607,9 +607,6 @@ I (..\FWLIB\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\FWLIB\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\delay\delay.h)(0x647A9CC7)
 I (..\MODULE\codetab.h)(0x647A1CA7)
-I (..\MODULE\stmflash.h)(0x649E58B8)
-I (..\MODULE\str.h)(0x647CB80F)
-I (..\MODULE\dht11.h)(0x649ED31A)
 F (..\MODULE\dht11.c)(0x649ED2CD)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\dht11.o --omf_browse ..\obj\dht11.crf --depend ..\obj\dht11.d)
 I (..\MODULE\dht11.h)(0x649ED31A)
 I (..\SYSTEM\sys\sys.h)(0x647C5B68)
@@ -642,7 +639,7 @@ I (..\FWLIB\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\FWLIB\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\FWLIB\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\delay\delay.h)(0x647A9CC7)
-F (..\MODULE\timer.c)(0x649E67E8)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
+F (..\MODULE\timer.c)(0x649FC474)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
 I (..\MODULE\timer.h)(0x6268ECD5)
 I (..\SYSTEM\sys\sys.h)(0x647C5B68)
 I (..\USER\stm32f10x.h)(0x6268D00B)
@@ -674,8 +671,8 @@ I (..\FWLIB\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\FWLIB\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\FWLIB\inc\misc.h)(0x4D783BB4)
 I (..\MODULE\led.h)(0x649E64A6)
-I (..\MODULE\parameters.h)(0x648E7134)
-F (..\MODULE\pwm.c)(0x649ED308)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\pwm.o --omf_browse ..\obj\pwm.crf --depend ..\obj\pwm.d)
+I (..\MODULE\key.h)(0x649FC175)
+F (..\MODULE\pwm.c)(0x649FC9DD)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\pwm.o --omf_browse ..\obj\pwm.crf --depend ..\obj\pwm.d)
 I (..\MODULE\pwm.h)(0x649EDCF5)
 I (..\SYSTEM\sys\sys.h)(0x647C5B68)
 I (..\USER\stm32f10x.h)(0x6268D00B)
@@ -706,7 +703,7 @@ I (..\FWLIB\inc\stm32f10x_tim.h)(0x6268CFB3)
 I (..\FWLIB\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\FWLIB\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\FWLIB\inc\misc.h)(0x4D783BB4)
-F (..\MODULE\systask.c)(0x649EDD36)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\systask.o --omf_browse ..\obj\systask.crf --depend ..\obj\systask.d)
+F (..\MODULE\systask.c)(0x649FE020)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\systask.o --omf_browse ..\obj\systask.crf --depend ..\obj\systask.d)
 I (..\MODULE\systask.h)(0x649E610B)
 I (..\SYSTEM\sys\sys.h)(0x647C5B68)
 I (..\USER\stm32f10x.h)(0x6268D00B)
@@ -749,15 +746,15 @@ I (..\UCOSII\PORT\os_cpu.h)(0x647AA1B6)
 I (..\SYSTEM\delay\delay.h)(0x647A9CC7)
 I (..\MODULE\led.h)(0x649E64A6)
 I (..\MODULE\uart.h)(0x649E71F7)
-I (..\MODULE\str.h)(0x647CB80F)
-I (..\MODULE\oled.h)(0x649E5F7C)
+I (..\MODULE\str.h)(0x649F8D83)
+I (..\MODULE\oled.h)(0x649FDF4A)
 I (..\MODULE\dht11.h)(0x649ED31A)
-I (..\MODULE\key.h)(0x649E681E)
+I (..\MODULE\key.h)(0x649FC175)
 I (..\MODULE\rc522.h)(0x649EDAFC)
 I (..\MODULE\pwm.h)(0x649EDCF5)
-I (..\MODULE\stmflash.h)(0x649E58B8)
+I (..\MODULE\stmflash.h)(0x649FE07B)
 F (..\MODULE\stmflash.c)(0x647C9BF3)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\stmflash.o --omf_browse ..\obj\stmflash.crf --depend ..\obj\stmflash.d)
-I (..\MODULE\stmflash.h)(0x649E58B8)
+I (..\MODULE\stmflash.h)(0x649FE07B)
 I (..\SYSTEM\sys\sys.h)(0x647C5B68)
 I (..\USER\stm32f10x.h)(0x6268D00B)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -884,8 +881,8 @@ I (..\FWLIB\inc\stm32f10x_tim.h)(0x6268CFB3)
 I (..\FWLIB\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\FWLIB\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\FWLIB\inc\misc.h)(0x4D783BB4)
-F (..\MODULE\key.c)(0x649ED534)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
-I (..\MODULE\key.h)(0x649E681E)
+F (..\MODULE\key.c)(0x649FCC3F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\FWLIB\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\MODULE -I ..\UCOSII\CONFIG -I ..\UCOSII\CORE -I ..\UCOSII\PORT-IC:\Users\Long\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_LD -DSTM32F10X_LD -DUSE_STDPERIPH_DRIVER-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
+I (..\MODULE\key.h)(0x649FC175)
 I (..\SYSTEM\sys\sys.h)(0x647C5B68)
 I (..\USER\stm32f10x.h)(0x6268D00B)
 I (..\CORE\core_cm3.h)(0x4D523B58)

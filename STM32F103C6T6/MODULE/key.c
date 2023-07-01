@@ -36,19 +36,19 @@ void Key_Init(void)
                                 3-The KEY2 button is pressed
                                 4-The WK_UP button is pressed
 ******************************************************************************/ 
-u8 ScanKey(u8 mode)
+u8 ScanKey(void)
 {
     if (!KEY1) {
+        delay_ms(10);
         LED_RED = 0;
         ReadFlag = 1;
-    } else {
-        LED_RED = 1;
+        while(!KEY1);
     }
     if (!KEY2) {
+        delay_ms(10);
         LED_GREEN = 0;
         WriteFlag = 1;
-    } else {
-        LED_GREEN = 1;
+        while(!KEY2);
     }
     return 0;
 }

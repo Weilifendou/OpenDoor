@@ -13,7 +13,7 @@
 //FLASH解锁键值
 
 
-#define DATA_START_ADDR 0x0800FF00 	//STM32 FLASH的起始地址
+#define DATA_START_ADDR 0x08007F50 	//STM32 FLASH的起始地址
 //                      0x08000000
 u16 STMFLASH_ReadHalfWord(u32 faddr);		  //读出半字  
 void STMFLASH_WriteLenByte(u32 WriteAddr,u32 DataToWrite,u16 Len);	//指定地址开始写入指定长度的数据

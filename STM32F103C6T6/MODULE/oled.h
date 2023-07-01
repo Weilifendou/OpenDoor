@@ -9,6 +9,9 @@
 #define OLED_IIC_SDA    PBout(7) //SDA
 #define READ_SDA   PBin(7)  //输入SDA 
 
+
+extern char StrBuff[4][17];
+
 //IIC所有操作函数
 void OLED_SDA_OUT(void);
 void OLED_SDA_IN(void);
@@ -37,8 +40,11 @@ void OLED_ShowStr(unsigned char x, unsigned char y, char* ch, unsigned char Text
 void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N);
 void OLED_DrawBMP(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,unsigned char BMP[]);
 void OLED_ShowCNS(u8 x, u8 y, u8 cns[], u8 num);
-
-void DisplayInfo(void);
+void OLED_CenterShowStr(u8 y, char* ch);
+void OLED_InsertStr(u8 start, u8 line, char* ch, u8 mode);
+void OLED_CenterValidate(void);
+void OLED_Validate(void);
+void ClearStrBuff(void);
 #endif
 
 

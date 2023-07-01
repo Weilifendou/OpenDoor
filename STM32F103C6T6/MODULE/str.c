@@ -61,31 +61,52 @@ u8 CompareStr(char* s1, char* s2) {
     }
 }
 
-char* IntToString(s32 value)        //整型数值转换为字符串函数
+char* IntToHex(u32 num) {
+    u8 bits = 0;
+    u8 temp = 0;
+    u32 compare = 1;
+    static char str[20] = {0};
+    do{
+        compare *= 0x10;
+    }while(compare <= num);
+    do{
+        compare /= 0x10;
+        temp = num / compare % 0x10;
+        if(temp < 10) {
+            str[bits] = temp + '0';
+        } else {
+            str[bits] = temp - 10 + 'A';
+        }
+        bits++;
+    }while(compare > 1);
+    str[bits] = 0;
+    return str;
+    
+}
+
+char* IntToString(s32 num)        //整型数值转换为字符串函数
 {
     static char str[20] = {0};
     u8 bits = 0;
-    long integer = 0;
-    long compare = 1; 
-    if(value < 0){
-        value = -value;
+    long compare = 1;
+    if(num < 0){
+        num = -num;
         str[bits] = '-';
         bits++;
     }
-    integer = (long) value;
     do{
         compare *= 10;
-    }while(compare <= integer);
+    }while(compare <= num);
     do{                                         
         compare /= 10;
-        str[bits] = integer / compare % 10 + '0';
+        str[bits] = num / compare % 10 + '0';
         bits++;
     }while(compare > 1);
     str[bits] = 0;
     return str;
 }
 
-char* FloatToString(double value, u8 precision)       //浮点型数值转换为字符串函数
+char* FloatToString(double num, u8 precision)       //浮点型数值转换为字符串函数
 {
     static char str[20] = {0};
     u8 bits = 0;
@@ -93,13 +114,13 @@ char* FloatToString(double value, u8 precision)       //浮点型数值转换为字符串函
     long compare = 1;
     long decimalPower = 1;  
     double decimal = 0;
-    if(value < 0){
-        value = -value;
+    if(num < 0){
+        num = -num;
         str[bits] = '-';
         bits++;
     }
-    integer = (long) value;
-    decimal = value - integer;
+    integer = (long) num;
+    decimal = num - integer;
     do{
         compare *= 10;
     }while(compare <= integer);

@@ -29,8 +29,6 @@ void LED_Init(void)
     GPIO_Init(GPIOB, &GPIO_InitStructure);
     GPIO_SetBits(GPIOB, GPIO_Pin_12|GPIO_Pin_13);
     
-    LED_RED = 0;
-    LED_GREEN = 1;
     
 }
  

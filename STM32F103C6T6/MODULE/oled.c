@@ -22,13 +22,12 @@
 #include "oled.h"
 #include "delay.h"
 #include "codetab.h"
-#include "stmflash.h"
-#include "str.h"
-#include "dht11.h"
+
+static char StrBuff[4][17] = {0};
 
 //初始化IIC
 void OLED_IIC_Init(void)
-{                         
+{
     GPIO_InitTypeDef GPIO_InitStructure;
     //RCC->APB2ENR|=1<<4;//先使能外设IO PORTC时钟 
     RCC_APB2PeriphClockCmd(    RCC_APB2Periph_GPIOB, ENABLE );    
@@ -40,7 +39,6 @@ void OLED_IIC_Init(void)
  
     OLED_IIC_SCL=1;
     OLED_IIC_SDA=1;
-
 }
 
 void OLED_SDA_OUT(void)
@@ -237,34 +235,44 @@ void OLED_Fill(unsigned char fill_Data)//全屏填充
             WriteDat(fill_Data);
         }
     }
+    
 }
 
-void OLED_ClearContent(unsigned char fill_Data)//清楚内容
-{
-    unsigned char m,n;
-    for(m=2;m<8;m++)
-    {
-        WriteCmd(0xb0+m);        //page0-page1
-        WriteCmd(0x00);        //low column start address
-        WriteCmd(0x10);        //high column start address
-        for(n=0;n<128;n++)
-        {
-            WriteDat(fill_Data);
+void ClearStrBuff(void) {
+    u8 i,j;
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 16; j++) {
+            StrBuff[i][j] = ' ';
         }
+        StrBuff[i][j] = 0;
     }
 }
+//void OLED_ClearContent(unsigned char fill_Data)//清楚内容
+//{
+//    unsigned char m,n;
+//    for(m=2;m<8;m++)
+//    {
+//        WriteCmd(0xb0+m);        //page0-page1
+//        WriteCmd(0x00);        //low column start address
+//        WriteCmd(0x10);        //high column start address
+//        for(n=0;n<128;n++)
+//        {
+//            WriteDat(fill_Data);
+//        }
+//    }
+//}
 
-void OLED_ClearLine(unsigned char line)//清除行
-{
-    unsigned char n;
-    WriteCmd(0xb0+line);        //page0-page1
-    WriteCmd(0x00);        //low column start address
-    WriteCmd(0x10);        //high column start address
-    for(n=0;n<128;n++)
-    {
-        WriteDat(0xFF);
-    }
-}
+//void OLED_ClearLine(unsigned char line)//清除行
+//{
+//    unsigned char n;
+//    WriteCmd(0xb0+line);        //page0-page1
+//    WriteCmd(0x00);        //low column start address
+//    WriteCmd(0x10);        //high column start address
+//    for(n=0;n<128;n++)
+//    {
+//        WriteDat(0xFF);
+//    }
+//}
 
 //--------------------------------------------------------------
 // Prototype      : void OLED_ON(void)
@@ -343,6 +351,46 @@ void OLED_ShowStr(unsigned char x, unsigned char y, char* ch, unsigned char Text
     }
 }
 
+//void OLED_CenterShowStr(u8 y, char* ch) {
+//    u8 i = 0;
+//    u8 x = 0;
+//    for (i = 0; ch[i] != 0; i++);
+//    if (i >= 16) i = 16;
+//    x = 64 - i * 8 / 2; //one char take up 8 pixel, and get its half length
+//    OLED_ShowStr(x, y, ch, 2);
+//}
+
+void OLED_InsertStr(u8 start, u8 line, char* ch, u8 mode) {
+    u8 i = 0;
+    if (mode) {
+        for (i = 0; ch[i] != 0; i++);
+        if (i >= 16) i = 16;
+        start = 8 - i / 2;
+        for (i = 0; ch[i] != 0; i++) {
+            StrBuff[line][start+i] = ch[i];
+        }
+    } else {
+        for (i = 0; ch[i] != 0; i++) {
+            if (start + i >= 16) break;
+            StrBuff[line][start+i] = ch[i];
+        }
+    }
+}
+
+void OLED_CenterValidate(void) {
+    u8 i = 0;
+    for (i = 0; i < 3; i++) {
+        OLED_ShowStr(0, i*2+1, StrBuff[i], 2);
+    }
+}
+
+void OLED_Validate(void) {
+    u8 i = 0;
+    for (i = 0; i < 4; i++) {
+        OLED_ShowStr(0, i*2, StrBuff[i], 2);
+    }
+}
+
 //--------------------------------------------------------------
 // Prototype      : void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N)
 // Calls          : 
@@ -410,43 +458,5 @@ void OLED_ShowCNS(u8 x, u8 y,u8 cns[], u8 num)
     }
 }
 
-
-extern u16 Temperature, Humidty;
-extern u8 white, yellow, steer;
-
-void DisplayInfo(void) {
-    char text[20] = {0};
-    static u8 page = 0;
-    if (page == 0) {
-        
-        //显示当前温度
-        ClearStr(text);
-        AddStr(text, "T: ");
-        AddStr(text, FloatToString(Temperature / 10.0, 1));
-        AddStr(text, "deg   ");
-        OLED_ShowStr(15, 1, text, 2);
-        
-        //显示当前湿度
-        ClearStr(text);
-        AddStr(text, "H: ");
-        AddStr(text, FloatToString(Humidty / 10.0, 1));
-        AddStr(text, "%   ");
-        OLED_ShowStr(15, 3, text, 2);
-        
-        //显示当前角度
-        ClearStr(text);
-        AddStr(text, IntToString(white));
-        AddStr(text, " ");
-        AddStr(text, IntToString(yellow));
-        AddStr(text, " ");
-        AddStr(text, IntToString(steer));
-        AddStr(text, "    ");
-
-        OLED_ShowStr(15, 5, text, 2);
-        TIM_SetCompare3(TIM3, steer);
-        
-    }
-    
-}
 
 

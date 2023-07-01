@@ -31,4 +31,4 @@
 ..\obj\timer.o: ..\FWLIB\inc\stm32f10x_wwdg.h
 ..\obj\timer.o: ..\FWLIB\inc\misc.h
 ..\obj\timer.o: ..\MODULE\led.h
-..\obj\timer.o: ..\MODULE\parameters.h
+..\obj\timer.o: ..\MODULE\key.h

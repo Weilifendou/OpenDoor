@@ -36,14 +36,15 @@ int main(void)
     DHT11_Init(); //温湿度传感器初始化
     RC522_Init(); //NFC初始化
     OLED_Init(); //屏幕初始化
-    OLED_Fill(0x00);
+    ClearStrBuff();
     ClearStr(text);
     AddStr(text, "OPEN DOOR");
-    OLED_ShowStr(30, 3, text, 2);
+    OLED_InsertStr(0, 1, text, 1);
+    OLED_CenterValidate();
+    ClearStrBuff();
     delay_ms(1000);
     delay_ms(1000);
     delay_ms(1000);
-    OLED_Fill(0x00);
     TIM3_PWM_Init(1999, 719); //PWM波初始化，周期为20ms
     TIM2_Int_Init(5999, 7199); //定时器2初始化定时1s
     Iwdg_Init();

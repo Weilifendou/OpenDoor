@@ -32,6 +32,3 @@
 ..\obj\oled.o: ..\FWLIB\inc\misc.h
 ..\obj\oled.o: ..\SYSTEM\delay\delay.h
 ..\obj\oled.o: ..\MODULE\codetab.h
-..\obj\oled.o: ..\MODULE\stmflash.h
-..\obj\oled.o: ..\MODULE\str.h
-..\obj\oled.o: ..\MODULE\dht11.h

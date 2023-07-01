@@ -7,6 +7,6 @@
 
 
 void Key_Init(void);    //IO初始化
-u8 ScanKey(u8);          //按键扫描函数    
+u8 ScanKey(void);          //按键扫描函数    
 
 #endif

@@ -1,6 +1,6 @@
 #include "timer.h"
 #include "led.h"
-#include "parameters.h"
+#include "key.h"
 
 //通用定时器中断初始化
 //这里时钟选择为APB1的2倍，而APB1为36M
@@ -39,9 +39,6 @@ void TIM2_IRQHandler(void)   //TIM2中断
     if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)  //检查TIM2更新中断发生与否
     {
         TIM_ClearITPendingBit(TIM2, TIM_IT_Update  );  //清除TIMx更新中断标志
-//        LED_RED=!LED_RED;
-//        LED_GREEN=!LED_GREEN;
-//        BUZZER = !BUZZER;
     }
 }
 

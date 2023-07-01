@@ -1,6 +1,8 @@
 #include "dht11.h"
 #include "delay.h"
 
+u16 Temperature, Humidty;
+
 void DHT11_Init(void) {
 
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);

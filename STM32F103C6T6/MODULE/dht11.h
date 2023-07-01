@@ -7,6 +7,8 @@
 #define DHT_UP GPIO_SetBits(GPIOA, GPIO_Pin_8)
 #define DHT_DOWN GPIO_ResetBits(GPIOA, GPIO_Pin_8)
 
+extern u16 Temperature, Humidty;
+
 void DatLineOut(void);
 void DatLineIn(void);
 

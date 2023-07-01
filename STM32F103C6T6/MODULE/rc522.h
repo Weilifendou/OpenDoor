@@ -169,25 +169,27 @@
 #define          macRC522_MISO_GET()          GPIO_ReadInputDataBit(macRC522_GPIO_MISO_PORT, macRC522_GPIO_MISO_PIN)
 
 
-
+extern u8 ICID[4];
+extern u8 ReadBuff[16];
+extern u8 WriteBuff[16];
+extern u8 ReadFlag, WriteFlag;
 /*********************************** 函数 *********************************************/
 void RC522_Init(void);
-char PrepareOperateCard(void);
-char GetICID(void);
-char Recharge(int amount);
-char Consume(int amount);
-char ReadBalance(void);
+u8 PrepareOperateCard(void);
+u8 GetICID(void);
+u8 ReadBlock(u8 order);
+u8 WriteBlock(u8 order);
 
 
 void PcdReset(void);//复位
-char PcdAuthState(u8 ucAuth_mode, u8 ucAddr, u8 * pKey, u8 * pSnr);//验证密码
+u8 PcdAuthState(u8 ucAuth_mode, u8 ucAddr, u8 * pKey, u8 * pSnr);//验证密码
 void M500PcdConfigISOType(u8 ucType);//设置RC522的工作方式
-char PcdRequest(u8 ucReq_code, u8 * pTagType);//寻卡
-char PcdAnticoll(u8 * pSnr);//防冲撞
-char PcdSelect(u8 * pSnr);//选卡
-char PcdWrite(u8 ucAddr, u8 * pData);
-char PcdRead(u8 ucAddr, u8 * pData);
-char PcdHalt(void);//终止对卡操作
+u8 PcdRequest(u8 ucReq_code, u8 * pTagType);//寻卡
+u8 PcdAnticoll(u8 * pSnr);//防冲撞
+u8 PcdSelect(u8 * pSnr);//选卡
+u8 PcdWrite(u8 ucAddr, u8 * pData);
+u8 PcdRead(u8 ucAddr, u8 * pData);
+u8 PcdHalt(void);//终止对卡操作
 void IC_CMT(u8 * UID, u8 * KEY, u8 RW, u8 * Dat);
 
 

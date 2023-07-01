@@ -2,6 +2,7 @@
 #include "delay.h"
 #include "led.h"
 #include "uart.h"
+#include "rc522.h"
 
 /*****************************************************************************
  * @name       :void KEY_Init(void)
@@ -39,11 +40,13 @@ u8 ScanKey(u8 mode)
 {
     if (!KEY1) {
         LED_RED = 0;
+        ReadFlag = 1;
     } else {
         LED_RED = 1;
     }
     if (!KEY2) {
         LED_GREEN = 0;
+        WriteFlag = 1;
     } else {
         LED_GREEN = 1;
     }

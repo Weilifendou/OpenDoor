@@ -2,10 +2,12 @@
 #include "delay.h"
 #include "led.h"
 #include "uart.h"
+#include "str.h"
 #include "oled.h"
 #include "dht11.h"
 #include "key.h"
 #include "rc522.h"
+#include "pwm.h"
 #include "stmflash.h"
 
 
@@ -49,24 +51,58 @@ void led_task(void *pdata)
 
 extern u16 Temperature, Humidty;
 
-extern u8 ICID[20];
 
 void handle_task(void *pdata)
 {
     u8 delayer = 10;
-	u8 onceFlag = 0;
 	u8 cStatus = MI_ERR;
+    char text[20];
     while(1)
     {
-        if (delayer >= 0) {
+        if (delayer >= 10) {
             delayer = 0;
             DHT11_ReadData(&Temperature, &Humidty);
             SendData();
         }
         ScanKey(0);
-        cStatus = GetICID();
-        ICID[0] = cStatus;
-        delay_ms(1000);
+        if (ReadFlag) {
+            ReadFlag = 0;
+            cStatus = GetICID();
+            if (cStatus == MI_OK) {
+                cStatus = ReadBlock(white);
+                if (cStatus == MI_OK) {
+                    ClearStr(text);
+                    AddStr(text, "READ SUCCESS ");
+                    OLED_ShowStr(30, 3, text, 2);
+                    
+                } else {
+                    ClearStr(text);
+                    AddStr(text, "READ FAIL    ");
+                    OLED_ShowStr(30, 3, text, 2);
+                }
+            
+            }
+        }
+        if (WriteFlag) {
+            WriteFlag = 0;
+            cStatus = GetICID();
+            if (cStatus == MI_OK) {
+                WriteBuff[0] = 0x01;
+                cStatus = WriteBlock(white);
+                if (cStatus == MI_OK) {
+                    ClearStr(text);
+                    AddStr(text, "WRITE SUCCESS ");
+                    OLED_ShowStr(30, 3, text, 2);
+                    
+                } else {
+                    ClearStr(text);
+                    AddStr(text, "WRITE FAIL    ");
+                    OLED_ShowStr(30, 3, text, 2);
+                }
+            
+            }
+        }
+        delay_ms(100);
         delayer++;
     }
 }
@@ -76,7 +112,7 @@ void display_task(void *pdata)
 {
     while(1)
     {
-        DisplayInfo();
+//        DisplayInfo();
         delay_ms(200);
     }
 }

@@ -1,12 +1,12 @@
 #include "sys.h"
 #include "uart.h"
 #include "str.h"
+#include "rc522.h"
+#include "dht11.h"
+#include "pwm.h"
 
 u8 SendBuff[TX_LENGTH];
 u8 RecBuff[RX_LENGTH];
-
-extern u16 Temperature, Humidty;
-extern u8 white, yellow, steer;
 
 
 void UART_Init(u32 bound){
@@ -101,12 +101,11 @@ u16 CRCCheckout(u8 *dat, u16 length) {
     return crc;
 }
 
-extern u8 ICID[4];
 
 void SendData(void) {
     u8 i = 0, s = 0;
     u16 crc = 0;
-    u8 datLength = 11;
+    u8 datLength = 23;
     SendBuff[s++] = 0x55;
     SendBuff[s++] = 0xaa;
     SendBuff[s++] = datLength;
@@ -114,26 +113,22 @@ void SendData(void) {
     SendBuff[s++] = Temperature;
     SendBuff[s++] = Humidty >> 8;
     SendBuff[s++] = Humidty;
-    SendBuff[s++] = ICID[i++];
-    SendBuff[s++] = ICID[i++];
-    SendBuff[s++] = ICID[i++];
-    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
-//    SendBuff[s++] = ICID[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
+    SendBuff[s++] = ReadBuff[i++];
     crc = CRCCheckout(SendBuff, datLength);
     
     SendBuff[s++] = crc >> 8;

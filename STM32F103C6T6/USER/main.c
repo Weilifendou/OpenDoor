@@ -36,11 +36,12 @@ int main(void)
     DHT11_Init(); //温湿度传感器初始化
     RC522_Init(); //NFC初始化
     OLED_Init(); //屏幕初始化
+    OLED_Fill(0x00);
     ClearStrBuff();
     ClearStr(text);
     AddStr(text, "OPEN DOOR");
     OLED_InsertStr(0, 1, text, 1);
-    OLED_CenterValidate();
+    OLED_ThreeLineCenterValidate();
     ClearStrBuff();
     delay_ms(1000);
     delay_ms(1000);

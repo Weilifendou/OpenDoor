@@ -3,17 +3,17 @@
 * Function List:
 *    1. void I2C_Configuration(void) -- 配置CPU的硬件I2C
 * 2. void I2C_WriteByte(uint8_t addr,uint8_t data) -- 向寄存器地址写一个byte的数据
-* 3. void WriteCmd(unsigned char I2C_Command) -- 写命令
-* 4. void WriteDat(unsigned char I2C_Data) -- 写数据
+* 3. void WriteCmd(u8 I2C_Command) -- 写命令
+* 4. void WriteDat(u8 I2C_Data) -- 写数据
 * 5. void OLED_Init(void) -- OLED屏初始化
-* 6. void OLED_SetPos(unsigned char x, unsigned char y) -- 设置起始点坐标
-* 7. void OLED_Fill(unsigned char fill_Data) -- 全屏填充
+* 6. void OLED_SetPos(u8 x, u8 y) -- 设置起始点坐标
+* 7. void OLED_Fill(u8 fill_Data) -- 全屏填充
 * 8. void OLED_CLS(void) -- 清屏
 * 9. void OLED_ON(void) -- 唤醒
 * 10. void OLED_OFF(void) -- 睡眠
-* 11. void OLED_ShowStr(unsigned char x, unsigned char y, unsigned char ch[], unsigned char TextSize) -- 显示字符串(字体大小有6*8和8*16两种)
-* 12. void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N) -- 显示中文(中文需要先取模，然后放到codetab.h中)
-* 13. void OLED_DrawBMP(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,unsigned char BMP[]) -- BMP图片
+* 11. void OLED_ShowStr(u8 x, u8 y, u8 ch[], u8 TextSize) -- 显示字符串(字体大小有6*8和8*16两种)
+* 12. void OLED_ShowCN(u8 x, u8 y, u8 N) -- 显示中文(中文需要先取模，然后放到codetab.h中)
+* 13. void OLED_DrawBMP(u8 x0,u8 y0,u8 x1,u8 y1,u8 BMP[]) -- BMP图片
 *
 * History: none;
 *
@@ -136,9 +136,9 @@ void OLED_IIC_Send_Byte(u8 txd)
     
 }         
 //读1个字节，ack=1时，发送ACK，ack=0，发送nACK   
-u8 OLED_IIC_Read_Byte(unsigned char ack)
+u8 OLED_IIC_Read_Byte(u8 ack)
 {
-    unsigned char i,receive=0;
+    u8 i,receive=0;
     OLED_SDA_IN();//SDA设置为输入
     for(i=0;i<8;i++ )
     {
@@ -170,12 +170,12 @@ void OLED_Write(u8 a, u8 b)
 }
 
 
-void WriteCmd(unsigned char I2C_Command)//写命令
+void WriteCmd(u8 I2C_Command)//写命令
 {
     OLED_Write(0x00, I2C_Command);
 }
 
-void WriteDat(unsigned char I2C_Data)//写数据
+void WriteDat(u8 I2C_Data)//写数据
 {
     OLED_Write(0x40, I2C_Data);
 }
@@ -215,16 +215,16 @@ void OLED_Init(void)
     
 }
 
-void OLED_SetPos(unsigned char x, unsigned char y) //设置起始点坐标
+void OLED_SetPos(u8 x, u8 y) //设置起始点坐标
 { 
     WriteCmd(0xb0+y);
     WriteCmd(((x&0xf0)>>4)|0x10);
     WriteCmd((x&0x0f)|0x01);
 }
 
-void OLED_Fill(unsigned char fill_Data)//全屏填充
+void OLED_Fill(u8 fill_Data)//全屏填充
 {
-    unsigned char m,n;
+    u8 m,n;
     for(m=0;m<8;m++)
     {
         WriteCmd(0xb0+m);        //page0-page1
@@ -247,9 +247,9 @@ void ClearStrBuff(void) {
         StrBuff[i][j] = 0;
     }
 }
-//void OLED_ClearContent(unsigned char fill_Data)//清楚内容
+//void OLED_ClearContent(u8 fill_Data)//清楚内容
 //{
-//    unsigned char m,n;
+//    u8 m,n;
 //    for(m=2;m<8;m++)
 //    {
 //        WriteCmd(0xb0+m);        //page0-page1
@@ -262,9 +262,9 @@ void ClearStrBuff(void) {
 //    }
 //}
 
-//void OLED_ClearLine(unsigned char line)//清除行
+//void OLED_ClearLine(u8 line)//清除行
 //{
-//    unsigned char n;
+//    u8 n;
 //    WriteCmd(0xb0+line);        //page0-page1
 //    WriteCmd(0x00);        //low column start address
 //    WriteCmd(0x10);        //high column start address
@@ -301,14 +301,14 @@ void OLED_OFF(void)
 }
 
 //--------------------------------------------------------------
-// Prototype      : void OLED_ShowChar(unsigned char x, unsigned char y, unsigned char ch[], unsigned char TextSize)
+// Prototype      : void OLED_ShowChar(u8 x, u8 y, u8 ch[], u8 TextSize)
 // Calls          : 
 // Parameters     : x,y -- 起始点坐标(x:0~127, y:0~7); ch[] -- 要显示的字符串; TextSize -- 字符大小(1:6*8 ; 2:8*16)
 // Description    : 显示codetab.h中的ASCII字符,有6*8和8*16可选择
 //--------------------------------------------------------------
-void OLED_ShowStr(unsigned char x, unsigned char y, char* ch, unsigned char TextSize)
+void OLED_ShowStr(u8 x, u8 y, char* ch, u8 TextSize)
 {
-    unsigned char c = 0,i = 0,j = 0;
+    u8 c = 0,i = 0,j = 0;
     switch(TextSize)
     {
         case 1:
@@ -377,11 +377,15 @@ void OLED_InsertStr(u8 start, u8 line, char* ch, u8 mode) {
     }
 }
 
-void OLED_CenterValidate(void) {
+void OLED_ThreeLineCenterValidate(void) {
     u8 i = 0;
     for (i = 0; i < 3; i++) {
         OLED_ShowStr(0, i*2+1, StrBuff[i], 2);
     }
+}
+void OLED_TwoLineCenterValidate(void) {
+    OLED_ShowStr(0, 1, StrBuff[0], 2);
+    OLED_ShowStr(0, 4, StrBuff[1], 2);
 }
 
 void OLED_Validate(void) {
@@ -392,14 +396,14 @@ void OLED_Validate(void) {
 }
 
 //--------------------------------------------------------------
-// Prototype      : void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N)
+// Prototype      : void OLED_ShowCN(u8 x, u8 y, u8 N)
 // Calls          : 
 // Parameters     : x,y -- 起始点坐标(x:0~127, y:0~7); N:汉字在codetab.h中的索引
 // Description    : 显示codetab.h中的汉字,16*16点阵
 //--------------------------------------------------------------
-void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N)
+void OLED_ShowCN(u8 x, u8 y, u8 N)
 {
-    unsigned char wm=0;
+    u8 wm=0;
     unsigned int  adder=32*N;
     OLED_SetPos(x, y);
     for(wm = 0;wm < 16;wm++)
@@ -416,15 +420,15 @@ void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N)
 }
 
 //--------------------------------------------------------------
-// Prototype      : void OLED_DrawBMP(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,unsigned char BMP[]);
+// Prototype      : void OLED_DrawBMP(u8 x0,u8 y0,u8 x1,u8 y1,u8 BMP[]);
 // Calls          : 
 // Parameters     : x0,y0 -- 起始点坐标(x0:0~127, y0:0~7); x1,y1 -- 起点对角线(结束点)的坐标(x1:1~128,y1:1~8)
 // Description    : 显示BMP位图
 //--------------------------------------------------------------
-void OLED_DrawBMP(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,unsigned char BMP[])
+void OLED_DrawBMP(u8 x0,u8 y0,u8 x1,u8 y1,u8 BMP[])
 {
     unsigned int j=0;
-    unsigned char x,y;
+    u8 x,y;
 
   if(y1%8==0)
         y = y1/8;

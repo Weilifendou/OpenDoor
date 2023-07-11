@@ -69,7 +69,7 @@ u16 CurrentUser[2] = {0};
 void handle_task(void *pdata)
 {
     u8 i = 0;
-    u8 delayer = 10;
+    u8 delayer = 30;
 	u8 cStatus = MI_ERR;
     while(1)
     {
@@ -113,7 +113,7 @@ void handle_task(void *pdata)
             BUZZER = 0;
             TIM_SetCompare4(TIM3, 50);
         }
-        if (delayer >= 10) {
+        if (delayer >= 30) {
             delayer = 0;
             DHT11_ReadData(&Temperature, &Humidty);
             SendData();
@@ -156,7 +156,7 @@ void display_task(void *pdata)
             AddStr(text, "      ");
             OLED_InsertStr(2, 2, text, 0);
             
-            OLED_CenterValidate();
+            OLED_ThreeLineCenterValidate();
         
         }
         else if (CurrentState == WRITE_SUCCESS) {

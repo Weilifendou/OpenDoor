@@ -67,7 +67,7 @@ namespace BLELowVersion
             if (this.listboxBleDevice.SelectedItem != null)
             {
                 string DeviceName = this.listboxBleDevice.SelectedItem.ToString();
-                Windows.Devices.Bluetooth.BluetoothLEDevice bluetoothLEDevice = this.DeviceList.Where(u => u.Name == DeviceName).FirstOrDefault();
+                BluetoothLEDevice bluetoothLEDevice = this.DeviceList.Where(u => u.Name == DeviceName).FirstOrDefault();
                 if (bluetoothLEDevice != null)
                 {
                     bleCore.StartMatching(bluetoothLEDevice);

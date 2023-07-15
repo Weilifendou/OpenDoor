@@ -28,24 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.listboxBleDevice = new System.Windows.Forms.ListBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listView2
+            // listboxBleDevice
             // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(353, 175);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(121, 97);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listboxBleDevice.FormattingEnabled = true;
+            this.listboxBleDevice.ItemHeight = 12;
+            this.listboxBleDevice.Location = new System.Drawing.Point(484, 47);
+            this.listboxBleDevice.Name = "listboxBleDevice";
+            this.listboxBleDevice.Size = new System.Drawing.Size(120, 88);
+            this.listboxBleDevice.TabIndex = 2;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(28, 26);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "button1";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1026, 536);
-            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.listboxBleDevice);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -54,7 +65,8 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListBox listboxBleDevice;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 

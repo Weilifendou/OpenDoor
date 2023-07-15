@@ -1,0 +1,13 @@
+C:\Files\VSProject\BLELowVersion\BLELowVersion\bin\Debug\BLELowVersion.exe.config
+C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csprojResolveAssemblyReference.cache
+C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.Properties.Resources.resources
+C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csproj.GenerateResource.Cache
+C:\Files\VSProject\BLELowVersion\BLELowVersion\bin\Debug\BLELowVersion.exe
+C:\Files\VSProject\BLELowVersion\BLELowVersion\bin\Debug\BLELowVersion.pdb
+C:\Files\VSProject\BLELowVersion\BLELowVersion\bin\Debug\Windows.winmd
+C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.exe
+C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.pdb
+C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csproj.AssemblyReference.cache
+C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csproj.SuggestedBindingRedirects.cache
+C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.Form1.resources
+C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csproj.CoreCompileInputs.cache

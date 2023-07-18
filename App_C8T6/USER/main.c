@@ -24,7 +24,7 @@ int main(void)
     Key_Init(); //按键初始化
     RC522_Init(); //NFC初始化
     TIM3_PWM_Init(1999, 719); //PWM波初始化，周期为20ms
-    TIM2_Int_Init(5999, 7199); //定时器2初始化定时1s
+//    TIM2_Int_Init(5999, 7199); //定时器2初始化定时1s
     Iwdg_Init();
     
     OSInit();

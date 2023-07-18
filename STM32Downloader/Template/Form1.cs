@@ -205,8 +205,7 @@ namespace Template
             SendThread.Start();
 
         }
-
-        private void buttonOperate_Click(object sender, EventArgs e)
+        private void OperatePort()
         {
             try
             {
@@ -233,6 +232,11 @@ namespace Template
             {
                 MessageBox.Show("接口操作失败");
             }
+
+        }
+        private void buttonOperate_Click(object sender, EventArgs e)
+        {
+            OperatePort();
         }
 
         private void buttonLoadFile_Click(object sender, EventArgs e)
@@ -249,12 +253,6 @@ namespace Template
 
         }
 
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            Overtime++;
-            SentFlag = false;
-
-        }
 
         private void checkBoxTopMode_CheckedChanged(object sender, EventArgs e)
         {

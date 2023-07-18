@@ -26,7 +26,7 @@ int main(void)
                 delayer = 0;
                 waitTime++;
                 LED = ~LED;
-                if (waitTime >= 5) {
+                if (waitTime > 5) {
                     waitTime = 0;
                     JumpToAddr(FLASH_APP_ADDR);
                 }

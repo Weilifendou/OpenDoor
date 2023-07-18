@@ -71,11 +71,6 @@
             // 
             this.serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort_DataReceived);
             // 
-            // timer
-            // 
-            this.timer.Interval = 500;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(527, 29);

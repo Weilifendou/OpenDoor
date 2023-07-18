@@ -123,31 +123,31 @@
 /*********************************** RC522 引脚定义 *********************************************/
 #define               macRC522_GPIO_CS_CLK_FUN                  RCC_APB2PeriphClockCmd
 #define               macRC522_GPIO_CS_CLK                      RCC_APB2Periph_GPIOA
-#define               macRC522_GPIO_CS_PORT    	                GPIOA			   
-#define               macRC522_GPIO_CS_PIN		                GPIO_Pin_4
+#define               macRC522_GPIO_CS_PORT    	                GPIOA
+#define               macRC522_GPIO_CS_PIN		                GPIO_Pin_7
 #define               macRC522_GPIO_CS_Mode		                GPIO_Mode_Out_PP
 
 #define               macRC522_GPIO_SCK_CLK_FUN                 RCC_APB2PeriphClockCmd
 #define               macRC522_GPIO_SCK_CLK                     RCC_APB2Periph_GPIOA
-#define               macRC522_GPIO_SCK_PORT    	            GPIOA			   
-#define               macRC522_GPIO_SCK_PIN		                GPIO_Pin_5
+#define               macRC522_GPIO_SCK_PORT    	            GPIOA
+#define               macRC522_GPIO_SCK_PIN		                GPIO_Pin_6
 #define               macRC522_GPIO_SCK_Mode		            GPIO_Mode_Out_PP
 
 #define               macRC522_GPIO_MOSI_CLK_FUN                RCC_APB2PeriphClockCmd
 #define               macRC522_GPIO_MOSI_CLK                    RCC_APB2Periph_GPIOA
-#define               macRC522_GPIO_MOSI_PORT    	            GPIOA			   
-#define               macRC522_GPIO_MOSI_PIN		            GPIO_Pin_6
+#define               macRC522_GPIO_MOSI_PORT    	            GPIOA
+#define               macRC522_GPIO_MOSI_PIN		            GPIO_Pin_5
 #define               macRC522_GPIO_MOSI_Mode		            GPIO_Mode_Out_PP
 
 #define               macRC522_GPIO_MISO_CLK_FUN                RCC_APB2PeriphClockCmd
 #define               macRC522_GPIO_MISO_CLK                    RCC_APB2Periph_GPIOA
-#define               macRC522_GPIO_MISO_PORT    	            GPIOA			   
-#define               macRC522_GPIO_MISO_PIN		            GPIO_Pin_7
+#define               macRC522_GPIO_MISO_PORT    	            GPIOA
+#define               macRC522_GPIO_MISO_PIN		            GPIO_Pin_4
 #define               macRC522_GPIO_MISO_Mode		            GPIO_Mode_IN_FLOATING
 
 #define               macRC522_GPIO_RST_CLK_FUN                 RCC_APB2PeriphClockCmd
 #define               macRC522_GPIO_RST_CLK                     RCC_APB2Periph_GPIOB
-#define               macRC522_GPIO_RST_PORT    	            GPIOB		   
+#define               macRC522_GPIO_RST_PORT    	            GPIOB
 #define               macRC522_GPIO_RST_PIN		                GPIO_Pin_0
 #define               macRC522_GPIO_RST_Mode		            GPIO_Mode_Out_PP
 
@@ -191,7 +191,6 @@ u8 PcdWrite(u8 ucAddr, u8 * pData);
 u8 PcdRead(u8 ucAddr, u8 * pData);
 u8 PcdHalt(void);//终止对卡操作
 void IC_CMT(u8 * UID, u8 * KEY, u8 RW, u8 * Dat);
-
 
 #endif /* __RC522_FUNCTION_H */
 

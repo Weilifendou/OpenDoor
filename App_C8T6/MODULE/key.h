@@ -4,7 +4,6 @@
 
 #define KEY1 PCin(15)
 #define KEY2 PCin(14)
-#define KEY3 PCin(13)
 
 
 void Key_Init(void);    //IO≥ı ºªØ

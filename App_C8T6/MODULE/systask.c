@@ -47,6 +47,7 @@ void led_task(void *pdata)
     
 }
 
+#define STORED_NUMBER (3*2) //只能存储三张卡片
 typedef enum {
     WRITE_SUCCESS,
     WRITE_FAIL,
@@ -60,7 +61,7 @@ typedef enum {
 } State;
 
 State CurrentState = NORMAL;
-u16 StoredUser[16] = {0};
+u16 StoredUser[STORED_NUMBER] = {0};
 u16 CurrentUser[2] = {0};
 
 void handle_task(void *pdata)
@@ -73,42 +74,52 @@ void handle_task(void *pdata)
         ScanKey();
         cStatus = GetICID();
         if (cStatus == MI_OK) {
+            CurrentState = VALIDATION_FAIL;
             CurrentUser[0] = ICID[0];
             CurrentUser[0] <<= 8;
             CurrentUser[0] |= ICID[1];
             CurrentUser[1] = ICID[2];
             CurrentUser[1] <<= 8;
             CurrentUser[1] |= ICID[3];
-            STMFLASH_Read(STM32_FLASH_BASE | DATA_START_ADDR, StoredUser, 16);
-            for (i = 0; i < 16; i+=2) {
-                if (StoredUser[i] == CurrentUser[0] && StoredUser[i+1] == CurrentUser[1]){
-                    CurrentState = VALIDATION;
-                    LED = 0;
-//                    BUZZER = !BUZZER;
-                    TIM_SetCompare4(TIM3, 180);
-                    break;
-                }
-                else if (StoredUser[i] == 0xffff && StoredUser[i+1] == 0xffff) break;
-            }
+            STMFLASH_Read(STM32_FLASH_BASE | DATA_START_ADDR, StoredUser, STORED_NUMBER);
             if (WriteFlag) {
                 WriteFlag = 0;
-                if (CurrentState != VALIDATION) {
-                    CurrentState = WRITE_SUCCESS;
+                for (i = 0; i < STORED_NUMBER; i+=2) {
+                    if (StoredUser[i] == 0xffff && StoredUser[i+1] == 0xffff) break;
+                }
+                if (i < STORED_NUMBER) {
                     STMFLASH_Write(STM32_FLASH_BASE | DATA_START_ADDR + i*2, CurrentUser, 2);
                 } else {
-                    CurrentState = USER_EXISTED;
+                    for (i = 0; i < STORED_NUMBER-2; i+=2) {
+                        StoredUser[i] = StoredUser[i+2];
+                        StoredUser[i+1] = StoredUser[i+3];
+                    }
+                    StoredUser[i] = CurrentUser[0];
+                    StoredUser[i+1] = CurrentUser[1];
+                    STMFLASH_Write(STM32_FLASH_BASE | DATA_START_ADDR, StoredUser, STORED_NUMBER);
                 }
-            } else if (CurrentState != VALIDATION) {
-                LED = 1;
-//                BUZZER = 1;
-                CurrentState = VALIDATION_FAIL;
+                CurrentState = WRITE_SUCCESS;
+                LED = 0;
+                delay_ms(1000);
+                delay_ms(1000);
+            } else {
+                for (i = 0; i < STORED_NUMBER; i+=2) {
+                    if (StoredUser[i] == CurrentUser[0] && StoredUser[i+1] == CurrentUser[1]){
+                        CurrentState = VALIDATION;
+                        TIM_SetCompare1(TIM3, 230);
+                        LED = 0;
+                        delay_ms(1000);
+                        delay_ms(1000);
+                        delay_ms(1000);
+                        break;
+                    }
+                }
+            
             }
         } else {
             CurrentState = NORMAL;
             LED = 1;
-//            LED_GREEN = 1;
-//            BUZZER = 0;
-            TIM_SetCompare4(TIM3, 50);
+            TIM_SetCompare1(TIM3, 80);
         }
         if (delayer >= 30) {
             delayer = 0;
@@ -133,16 +144,13 @@ void display_task(void *pdata)
         }
         else if (CurrentState == VALIDATION) {
             LED = 0;
-            
         }
+        
         if (CurrentState == NORMAL) {
-            printf("请放卡片。。。\r\n");
+            printf("等待认证\r\n");
         }
         else if (CurrentState == WRITE_SUCCESS) {
             printf("%X%X\r\n录入成功\r\n", CurrentUser[0], CurrentUser[1]);
-        }
-        else if (CurrentState == USER_EXISTED) {
-            printf("%X%X\r\n用户已存在\r\n", CurrentUser[0], CurrentUser[1]);
         }
         else if (CurrentState == VALIDATION) {
             printf("%X%X\r\n认证成功\r\n", CurrentUser[0], CurrentUser[1]);

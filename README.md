@@ -1,4 +1,4 @@
-1. git remote add origin git@ssh链接
+﻿1. git remote add origin git@ssh链接
 2. git add . #添加所有文件到缓存区
 3. git commit -m '提交内容说明' #提交代码到本地仓库
 4. git push origin master #将本地仓库中的提交推送到名为 origin 的远程仓库的 master 分支中
@@ -20,4 +20,6 @@
 20. git config --global  --list #检查一下用户名和邮箱是否配置
 21. git config --global  user.name "这里换上你的用户名"
 22. git config --global user.email "这里换上你的邮箱"
-23. ssh-keygen -t rsa -c "这是你的邮箱" 生成密钥
+23. ssh-keygen -t rsa -c "这是你的邮箱" #生成密钥
+24. git branch -vv #查看本地分支于远程分支的关系
+25. git branch --set-upstream-to=origin/my-branch my-branch #建立本地分支与远程分支的关系

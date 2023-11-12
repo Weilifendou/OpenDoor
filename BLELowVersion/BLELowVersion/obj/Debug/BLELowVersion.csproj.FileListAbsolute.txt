@@ -11,3 +11,11 @@ C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csproj.As
 C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csproj.SuggestedBindingRedirects.cache
 C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.Form1.resources
 C:\Files\VSProject\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csproj.CoreCompileInputs.cache
+C:\Files\OpenDoor\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csproj.AssemblyReference.cache
+C:\Files\OpenDoor\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csproj.SuggestedBindingRedirects.cache
+C:\Files\OpenDoor\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.Form1.resources
+C:\Files\OpenDoor\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.Properties.Resources.resources
+C:\Files\OpenDoor\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csproj.GenerateResource.cache
+C:\Files\OpenDoor\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.csproj.CoreCompileInputs.cache
+C:\Files\OpenDoor\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.exe
+C:\Files\OpenDoor\BLELowVersion\BLELowVersion\obj\Debug\BLELowVersion.pdb

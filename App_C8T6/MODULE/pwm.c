@@ -19,7 +19,7 @@ void TIM3_PWM_Init(u16 arr,u16 psc)
     GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable,ENABLE);
     GPIO_PinRemapConfig(GPIO_PartialRemap_TIM3,ENABLE); //PB4在单片机复位后，它是作为JTAG引脚来使用的
     
-    GPIO_InitStructure.GPIO_Pin =GPIO_Pin_4;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
     GPIO_Init(GPIOB, &GPIO_InitStructure);

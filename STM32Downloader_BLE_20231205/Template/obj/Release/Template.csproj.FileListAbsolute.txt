@@ -1,0 +1,13 @@
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\bin\Release\Downloader.exe.config
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\bin\Release\Downloader.exe
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\bin\Release\Downloader.pdb
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\bin\Release\Windows.winmd
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\obj\Release\Template.csproj.AssemblyReference.cache
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\obj\Release\Template.csproj.SuggestedBindingRedirects.cache
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\obj\Release\Template.Form1.resources
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\obj\Release\Downloader.Properties.Resources.resources
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\obj\Release\Template.csproj.GenerateResource.cache
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\obj\Release\Template.csproj.CoreCompileInputs.cache
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\obj\Release\Template.csproj.CopyComplete
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\obj\Release\Downloader.exe
+C:\Files\OpenDoor\STM32Downloader_BLE_20231205\Template\obj\Release\Downloader.pdb

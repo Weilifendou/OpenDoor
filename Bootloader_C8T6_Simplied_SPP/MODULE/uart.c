@@ -3,9 +3,12 @@
 #include "stmflash.h"
 #include "delay.h"
 #include "stdio.h"
+#include "str.h"
+
 
 //////////////////////////////////////////////////////////////////
-//加入以下代码,支持printf函数,而不需要选择use MicroLIB      
+//加入以下代码,支持printf函数,而不需要选择use MicroLIB
+//下面代码在运行过程中可能会输出不正常，慎用！！！
 #if 1
 #pragma import(__use_no_semihosting)             
 //标准库需要的支持函数                 
@@ -34,10 +37,13 @@ int fputc(int ch, FILE *f)
     USART1->DR = (u8) ch;      
     return ch;
 }
-#endif 
+#endif
 
+
+u16 DownloadMode;
 
 void UART_Init(u32 bound){
+    u16 temp[1] = {0};
   //GPIO端口设置
     GPIO_InitTypeDef GPIO_InitStructure;
     USART_InitTypeDef USART_InitStructure;
@@ -75,7 +81,8 @@ void UART_Init(u32 bound){
     USART_Init(USART1, &USART_InitStructure); //初始化串口1
     USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);//开启串口接受中断
     USART_Cmd(USART1, ENABLE);                    //使能串口1 
-
+    STMFLASH_Read(TRANSFORM_RATE_ADDR, temp, 1);
+    DownloadMode = temp[0];
 }
 
 
@@ -127,8 +134,12 @@ void SendData(u8 funCode, u8* dat, u16 length) {
 //__attribute__((at(0x20001000)));
 
 
-u8 RecBuff[BUFF_SIZE];
-u16 OneFrame[FRAME_SIZE];
+u8 SPP_RecBuff[SPP_FRAME_SIZE*2+30];
+u16 SPP_Frame[SPP_FRAME_SIZE];
+
+u8 BLE_RecBuff[BLE_FRAME_SIZE*2+30];
+u16 BLE_Frame[BLE_FRAME_SIZE];
+
 u8 FunCode;
 u16 FileLength; //十六位数值长度的文件大小仅支持64KB的固件写入
 u16 Progress;
@@ -147,64 +158,131 @@ void JumpToAddr(u32 addr)
     }
 }
 
-
-void USART1_IRQHandler(void)                    //串口1中断服务程序
-{
+void SPP_Download(u8 dat) {
     u16 s = 0, i = 0;
 //    u16 recCRC = 0, calCRC = 0;
     u16 datLength = 0;
     u8 checkout = 0;
     static u16 buffCounter = 0;
     static u8 hash[16] = {0};
+    SPP_RecBuff[buffCounter++] = USART_ReceiveData(USART1);
+    if (buffCounter >= SPP_FRAME_SIZE) {
+        buffCounter = 0;
+        for (s = 0; s < SPP_FRAME_SIZE; s++) {
+            if (SPP_RecBuff[s] == 0x55 && SPP_RecBuff[s+1] == 0xaa
+               && SPP_RecBuff[s+2] == 0x55 && SPP_RecBuff[s+3] == 0xaa) {
+                datLength = SPP_RecBuff[s+4];
+                datLength <<= 8;
+                datLength |= SPP_RecBuff[s+5];
+                break;
+            }
+        }
+        if (s+datLength < SPP_FRAME_SIZE) {
+//                calCRC = CRCCheckout(SPP_RecBuff+s, datLength);
+//                recCRC = SPP_RecBuff[s+datLength];
+//                recCRC <<= 8;
+//                recCRC |= SPP_RecBuff[s+datLength+1];
+//                if (calCRC == recCRC) {
+            MD5Final(hash, SPP_RecBuff+s, datLength);
+            for (i = 0; i < 16; i++) {
+                if (hash[i] == SPP_RecBuff[datLength+i+s]) {
+                    checkout++;
+                }
+            }
+            if (checkout >= 16) {
+                s += 6;
+                FunCode = SPP_RecBuff[s++];
+                if (FunCode == 1) {
+                    FileLength = SPP_RecBuff[s++];
+                    FileLength <<= 8;
+                    FileLength |= SPP_RecBuff[s++];
+                }
+                else if (FunCode == 2) {
+                    for (i = 0; i < SPP_FRAME_SIZE; i++) {
+                        SPP_Frame[i] = SPP_RecBuff[s++];
+                        SPP_Frame[i] |= (u16)SPP_RecBuff[s++] << 8;
+                    }
+                    Progress = SPP_RecBuff[s++];
+                    Progress <<= 8;
+                    Progress |= SPP_RecBuff[s++];
+                    STMFLASH_Write(FLASH_APP_ADDR + Progress, SPP_Frame, SPP_FRAME_SIZE);
+                    SendByte(0x55);
+                }
+            } else {
+                SendByte(0xaa);
+            }
+        }
+    }
+}
+
+void BLE_Download(u8 dat) {
+    u16 s = 0, i = 0;
+//    u16 recCRC = 0, calCRC = 0;
+    u16 datLength = 0;
+    u8 checkout = 0;
+    static u16 buffCounter = 0;
+    static u8 hash[16] = {0};
+    BLE_RecBuff[buffCounter++] = USART_ReceiveData(USART1);
+    if (buffCounter >= BLE_FRAME_SIZE) {
+        buffCounter = 0;
+        for (s = 0; s < BLE_FRAME_SIZE; s++) {
+            if (BLE_RecBuff[s] == 0x55 && BLE_RecBuff[s+1] == 0xaa
+           && BLE_RecBuff[s+2] == 0x55 && BLE_RecBuff[s+3] == 0xaa) {
+                datLength = BLE_RecBuff[s+4];
+                datLength <<= 8;
+                datLength |= BLE_RecBuff[s+5];
+                break;
+            }
+        }
+        if (s+datLength < BLE_FRAME_SIZE) {
+//                calCRC = CRCCheckout(BLE_RecBuff+s, datLength);
+//                recCRC = BLE_RecBuff[s+datLength];
+//                recCRC <<= 8;
+//                recCRC |= BLE_RecBuff[s+datLength+1];
+//                if (calCRC == recCRC) {
+//            MD5Final(hash, BLE_RecBuff+s, datLength);
+            for (i = 0; i < 16; i++) {
+                if (hash[i] == BLE_RecBuff[datLength+i+s]) {
+                    checkout++;
+                }
+            }
+            if (checkout >= 16) {
+                s += 6;
+                FunCode = BLE_RecBuff[s++];
+                if (FunCode == 1) {
+                    FileLength = BLE_RecBuff[s++];
+                    FileLength <<= 8;
+                    FileLength |= BLE_RecBuff[s++];
+                    delay_ms(10);
+                }
+                else if (FunCode == 2) {
+                    for (i = 0; i < BLE_FRAME_SIZE; i++) {
+                        BLE_Frame[i] = BLE_RecBuff[s++];
+                        BLE_Frame[i] |= (u16)BLE_RecBuff[s++] << 8;
+                    }
+                    Progress = BLE_RecBuff[s++];
+                    Progress <<= 8;
+                    Progress |= BLE_RecBuff[s++];
+                    STMFLASH_Write(FLASH_APP_ADDR + Progress, BLE_Frame, BLE_FRAME_SIZE);
+                    SendByte(0x55);
+                }
+            } else {
+                SendByte(0xaa);
+            }
+        }
+    }
+}
+
+void USART1_IRQHandler(void)                    //串口1中断服务程序
+{
+    u8 buff = 0;
     if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) 
     {
-        RecBuff[buffCounter++] = USART_ReceiveData(USART1);
-        if (buffCounter >= BUFF_SIZE) {
-            buffCounter = 0;
-            for (s = 0; s < BUFF_SIZE; s++) {
-                if (RecBuff[s] == 0x55 && RecBuff[s+1] == 0xaa
-               && RecBuff[s+2] == 0x55 && RecBuff[s+3] == 0xaa) {
-                    datLength = RecBuff[s+4];
-                    datLength <<= 8;
-                    datLength |= RecBuff[s+5];
-                    break;
-                }
-            }
-            if (s+datLength < BUFF_SIZE) {
-//                calCRC = CRCCheckout(RecBuff+s, datLength);
-//                recCRC = RecBuff[s+datLength];
-//                recCRC <<= 8;
-//                recCRC |= RecBuff[s+datLength+1];
-//                if (calCRC == recCRC) {
-                MD5Final(hash, RecBuff+s, datLength);
-                for (i = 0; i < 16; i++) {
-                    if (hash[i] == RecBuff[datLength+i+s]) {
-                        checkout++;
-                    }
-                }
-                if (checkout >= 16) {
-                    s += 6;
-                    FunCode = RecBuff[s++];
-                    if (FunCode == 1) {
-                        FileLength = RecBuff[s++];
-                        FileLength <<= 8;
-                        FileLength |= RecBuff[s++];
-                    }
-                    else if (FunCode == 2) {
-                        for (i = 0; i < FRAME_SIZE; i++) {
-                            OneFrame[i] = RecBuff[s++];
-                            OneFrame[i] |= (u16)RecBuff[s++] << 8;
-                        }
-                        Progress = RecBuff[s++];
-                        Progress <<= 8;
-                        Progress |= RecBuff[s++];
-                        STMFLASH_Write(FLASH_APP_ADDR + Progress, OneFrame, FRAME_SIZE);
-                        SendByte(0x55);
-                    }
-                } else {
-                    SendByte(0xaa);
-                }
-            }
+        buff = USART_ReceiveData(USART1);
+        if (DownloadMode) {
+            SPP_Download(buff);
+        } else {
+            BLE_Download(buff);
         }
     }
 }
@@ -216,3 +294,26 @@ void SendByte(u8 byte)
 }
 
 
+void PrintFloat(double value, u8 precision) //串口打印浮点数函数，precision为精确位数
+{   
+    u8 i = 0;
+    char* text = FloatToString(value, precision);
+    for(i = 0; *(text + i) != 0; i++) {
+        SendByte(*(text + i));
+    }
+}
+void PrintInt(long value)              //串口打印整型数函数
+{
+    u8 i = 0;
+    char* text = IntToString(value);
+    for(i = 0; *(text + i) != 0; i++) {
+        SendByte(*(text + i));
+    }
+}
+void PrintText(char* text)           //串口打印字符串
+{
+    u8 i = 0;
+    for(i = 0; *(text + i) != 0; i++) {
+        SendByte(*(text + i));
+    }
+}

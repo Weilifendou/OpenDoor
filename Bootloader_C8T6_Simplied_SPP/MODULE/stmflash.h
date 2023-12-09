@@ -12,11 +12,12 @@
 #define STM32_FLASH_BASE 0x08000000     //STM32 FLASH的起始地址
 //FLASH解锁键值
 
-#define FLASH_APP_OFFSET 0x2800
+#define FLASH_APP_OFFSET 0x4000
 //                   0x08000000
 
-#define FLASH_APP_ADDR 0x08002800 //第一个应用程序起始地址(存放在FLASH)
+#define FLASH_APP_ADDR 0x080040000 //第一个应用程序起始地址(存放在FLASH)
 //                     0x08000000
+#define TRANSFORM_RATE_ADDR  0x08003FF0
 
 u16 STMFLASH_ReadHalfWord(u32 faddr);          //读出半字  
 void STMFLASH_WriteLenByte(u32 WriteAddr,u32 DataToWrite,u16 Len);    //指定地址开始写入指定长度的数据

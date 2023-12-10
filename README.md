@@ -23,3 +23,4 @@
 23. ssh-keygen -t rsa -c "这是你的邮箱" #生成密钥
 24. git branch -vv #查看本地分支于远程分支的关系
 25. git branch --set-upstream-to=origin/my-branch my-branch #建立本地分支与远程分支的关系
+26. git log #查看当前所有提交历史记录

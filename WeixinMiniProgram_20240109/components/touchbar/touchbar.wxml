@@ -1,0 +1,8 @@
+<!--components/touchbar/touchbar.wxml-->
+<canvas
+  type="2d" id="myCanvas"
+  style="width: {{width}}px; height: {{height}}px;"
+  bind:touchstart="touchstart"
+  bind:touchmove="touchmove"
+  bind:touchend="touchend">
+</canvas>

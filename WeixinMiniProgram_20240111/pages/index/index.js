@@ -25,9 +25,10 @@ Page({
     devices: [],
     connected: false,
     chs: [],
-    rec: 'xxx',
+    debugText: 'DebugText',
     tempareture: 250,
-    humidity: '800'
+    humidity: 800,
+    progress: 0.2
   },
   onLoad() {
     console.log('hello world')
@@ -36,13 +37,13 @@ Page({
   openBluetoothAdapter() {
     wx.openBluetoothAdapter({
       success: (res) => {
-        console.log('openBluetoothAdapter success', res)
+        // console.log('openBluetoothAdapter success', res)
         this.startBluetoothDevicesDiscovery()
       },
       fail: (res) => {
         if (res.errCode === 10001) {
           wx.onBluetoothAdapterStateChange(function (res) {
-            console.log('onBluetoothAdapterStateChange', res)
+            // console.log('onBluetoothAdapterStateChange', res)
             if (res.available) {
               this.startBluetoothDevicesDiscovery()
             }
@@ -54,7 +55,7 @@ Page({
   getBluetoothAdapterState() {
     wx.getBluetoothAdapterState({
       success: (res) => {
-        console.log('getBluetoothAdapterState', res)
+        // console.log('getBluetoothAdapterState', res)
         if (res.discovering) {
           this.onBluetoothDeviceFound()
         } else if (res.available) {
@@ -71,7 +72,7 @@ Page({
     wx.startBluetoothDevicesDiscovery({
       allowDuplicatesKey: true,
       success: (res) => {
-        console.log('startBluetoothDevicesDiscovery success', res)
+        // console.log('startBluetoothDevicesDiscovery success', res)
         this.onBluetoothDeviceFound()
       },
     })
@@ -142,7 +143,7 @@ Page({
       deviceId,
       serviceId,
       success: (res) => {
-        console.log('getBLEDeviceCharacteristics success', res.characteristics)
+        // console.log('getBLEDeviceCharacteristics success', res.characteristics)
         for (let i = 0; i < res.characteristics.length; i++) {
           let item = res.characteristics[i]
           if (item.properties.read) {
@@ -172,14 +173,14 @@ Page({
         }
       },
       fail(res) {
-        console.error('getBLEDeviceCharacteristics', res)
+        // console.error('getBLEDeviceCharacteristics', res)
       }
     })
     // 操作之前先监听，保证第一时间获取数据
     wx.onBLECharacteristicValueChange((characteristic) => {
       this.parseRecData(characteristic.value)
       this.setData({
-        // rec: ab2hex(characteristic.value)
+        debugText: ab2hex(characteristic.value)
       })
     })
   },
@@ -254,4 +255,19 @@ Page({
     wx.closeBluetoothAdapter()
     this._discoveryStarted = false
   },
+  openDoorChanged(e) {
+    this.setData({
+      progress: e.detail.progress
+    })
+  },
+  temChanged(e) {
+    this.setData({
+      tempareture: e.detail.progress * 1000 - 500
+    })
+  },
+  humChanged(e) {
+    this.setData({
+      humidity: e.detail.progress * 1000
+    })
+  }
 })

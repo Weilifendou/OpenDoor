@@ -7,48 +7,49 @@ module.exports.len = function(arr) {
   return arr.length
 }
 module.exports.convert = function(number, total) {
-  return number / total
+  return number/total
 }
 module.exports.format = function(number) {
-  return (number/10).toFixed(1)
+  return (number/10).toFixed(2)
 }
 </wxs>
 <view class="container">
-  <textarea value="{{rec}}"></textarea>
+  <view class="title">JUST CONTROL</view>
   <view class="infor-box">
     <view class="tem-box">
-      <touchbar width="30" height="100" 
-      fillColor="#f47920"
-      progress="{{utils.convert(tempareture + 400, 1000)}}"></touchbar>
-      <text>{{utils.format(tempareture)}}℃</text>
+      <touchbar width="50" height="150" 
+      radius="10" fillColor="#f47920"
+      progress="{{utils.convert(tempareture + 500, 1000)}}"
+      bind:progressChanged="temChanged"/>
+      <view>当前温度</view>
+      <view>{{utils.format(tempareture)}} ℃</view>
     </view>
     <view class="hum-box">
-      <touchbar width="30" height="100"
+      <touchbar width="50" height="150" radius="10"
       progress="{{utils.convert(humidity, 1000)}}"
-      ></touchbar>
-      <text>{{utils.format(humidity)}}%</text>
+      bind:progressChanged="humChanged"/>
+      <view>当前湿度</view>
+      <view>{{utils.format(humidity)}} %</view>
     </view>
   </view>
-  <view>
-    <button type="default" bind:tap="closeBLEConnection">断开连接</button>
-    <touchbar width="200" height="80"></touchbar>
+  <!-- <textarea value="{{debugText}}"/> -->
+  <button class="close-btn"bind:tap="closeBLEConnection">断开连接</button>
+  
+  <view>{{utils.format(progress*1000)}}%</view>
+  <view class="open-door">
+    <touchbar width="200" height="80" radius="20"
+    bind:progressChanged="openDoorChanged"/>
   </view>
 </view>
-
 <view class="dialog-mask" wx:if="{{!connected}}">
-
-  <button bindtap="openBluetoothAdapter">开始扫描</button>
-  <button bindtap="stopBluetoothDevicesDiscovery">停止扫描</button>
-  <button bindtap="closeBluetoothAdapter">结束流程</button>
-
-  <view class="devices_summary">已发现 {{devices.length}} 个外围设备：</view>
-  <scroll-view class="device_list" scroll-y scroll-with-animation>
+  <view class="devices-summary">已发现 {{devices.length}} 个外围设备：</view>
+  <scroll-view class="device-list" scroll-y scroll-with-animation>
     <view wx:for="{{devices}}" wx:key="index"
     data-device-id="{{item.deviceId}}"
     data-name="{{item.name || item.localName}}"
     bindtap="createBLEConnection" 
-    class="device_item"
-    hover-class="device_item_hover">
+    class="device-item"
+    hover-class="device-item-hover">
       <view style="font-size: 16px; color: #333;">{{item.name}}</view>
       <view style="font-size: 10px">信号强度: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>
       <view style="font-size: 10px">UUID: {{item.deviceId}}</view>
